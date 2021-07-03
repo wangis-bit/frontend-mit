@@ -1,0 +1,444 @@
+<div class="container col-md-12 row">
+    
+    <div class="card col-md-6 offset-md-3" style="background-color: lightblue;">
+        <div style="background-color: blue; color:white;padding: 5px;margin-top: 10px;border-radius: 5px;">
+       <h1 style="text-align:center; font-weight: bolder;font-size: 40px;">Machakos Institute of Technology</h1>
+       <div class="row">
+        <div class="col-md-3">
+          <img src="assets/mit.png" alt="">
+        </div>
+        <div class="col-md-6">
+          <h1 style="text-align:center; font-weight: bolder;">New User Registration</h1>
+        </div>
+        <div class="col-md-3 text-right">
+          <img src="assets/production-logo.jpg" alt="">
+        </div>
+       </div>
+      
+          
+      
+        </div>
+        <div style="background-color: orange;border-radius: 5px;">
+          <h6 class="text-center" style="font-size: 20px;color: blue;font-weight: bolder;">Fees Managment Information System</h6>
+        </div>
+        <hr>
+        <div class=" col-md-12 row text-center" style="padding-top: 10px;padding-bottom:10px;">
+            <div class="col-md-3"style="width:100%" >
+                <button class="btn btn-outline-success btn-sm"style="width:100%"  routerLink="../registerUser/hod-login-reg">Add H.O.D</button>
+            </div>
+            <div class="col-md-3"style="width:100%" >
+                <button class="btn btn-outline-success btn-sm"style="width:100%"  routerLink="../registerUser/registar-login">Add Registrar</button>
+            </div>
+            <div class="col-md-3"style="width:100%" >
+                <button class="btn btn-outline-success btn-sm mx-2"style="width:100%"  style="width: 100%;" routerLink="../registerUser/tutors-reg">Add Tutor</button>
+              
+            </div>
+            <div class="col-md-3">
+                
+                <button class="btn btn-outline-success btn-sm"style="width:100%"  routerLink="../registerUser/accountant-login-reg" >Add  Accountant</button>
+            </div>
+            
+        </div>
+        <div class=" col-md-12 row text-center" style="padding-top: 10px;padding-bottom:10px;">
+          <div class="col-md-3" style="width:100%">
+              <button class="btn btn-outline-success btn-sm"style="width:100%"  routerLink="../registerUser/director-login-reg">Add  Dir</button>
+          </div>
+          <div class="col-md-3" style="width:100%" >
+              <button class="btn btn-outline-success btn-sm"style="width:100%"  routerLink="../registerUser/admin-login-reg">Add Admin</button>
+          </div>
+          <div class="col-md-3"style="width:100%" >
+              <button class="btn btn-outline-success btn-sm"style="width:100%"  routerLink="../registerUser/principal-login-reg">Add Principal</button>
+          </div>
+          <div class="col-md-3"style="width:100%" >
+              <button class="btn btn-outline-success btn-sm"style="width:100%"  routerLink="../registerUser/dp-login-reg">Add DP</button>
+          </div>
+         
+          
+      </div>
+       <br><hr><br>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" id="showribbon" href="#home" >Register system Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" id="closeRib" href="#menu1">Users that can log into the system</a>
+            </li>
+           
+           
+          </ul>
+
+          <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <div class="card-body">
+                    <div class="col-md 6">
+                        <form (ngSubmit)="form.form.valid &&  insertUsers()"   #form="ngForm">
+                    
+                              <div *ngIf="message" class="text-center">
+                                <span [ngClass]="(status==1)?'text-success':'text-danger'">{{message}}, {{LoginMessage}}</span>
+                              </div>
+                         <div class="form-group" >
+                            <div class="row">
+                                <label for="username">Username</label>
+                                <div class="form-group" style="width: 100%;">
+                                    <input type="text"  class="form-control" #name="ngModel"  name="name" [(ngModel)]="loginData.name" [(ngModel)]="loginData2.name">
+                                </div>
+                            </div>
+                         </div>
+                         <div class="form-group">
+                            <div class="row">
+                                <label for="email">Email Address</label>
+                                <div class="form-group"  style="width: 100%;">
+                                    <input type="email" class="form-control" #email="ngModel" name="email" [(ngModel)]="loginData.email" [(ngModel)]="loginData2.email" [(ngModel)]="generalUsers.email">
+                                </div>
+                            </div>
+                          </div>
+                          
+                            <div class="row">
+                                <label for="password">Password</label>
+                                <div class="form-group" style="width: 100%;">
+                                    <input type="password" class="form-control" #password="ngModel"  name="password" [(ngModel)]="loginData.password" [(ngModel)]="loginData2.password">
+                                </div>
+                            </div>
+                            <!-- <div class="row">
+                                <label for="password">Confirm Password</label>
+                                <div class="form-group" style="width: 100%;">
+                                    <input type="password" class="form-control" name="cpass" ([ngModel])="cpass" >
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <h3><b>Select User Acount</b></h3>
+                            </div> <hr>
+                            <div class="row" style="padding: 2px;">
+                                <a id="general" class="btn btn-sm btn-outline-secondary mx-2">General Users</a>
+                                <!-- <a id="hod" class="btn btn-sm btn-outline-secondary mx-2">Head of Department</a> -->
+                                <a id="tutor" class="btn btn-sm btn-outline-secondary mx-2">Tutor and head of Department</a>
+                                <a id="student" class="btn btn-sm btn-outline-secondary mx-2">Student</a>
+                                <a id="back" class="btn btn-sm btn-outline-secondary mx-2">Select Other</a>
+                            </div> <hr>
+
+                           <div class="row">
+                               
+                                <div class="col-md-12" id="first">
+                                    
+                                    <div *ngIf="roles" class="row" >
+                                        <label for="" class="text-center"><b><i> <code>General user registration</code></i></b></label>
+                                            <select class="form-control" style="width: 100%;" (change)="GetUserName($event)" name="role_id" [(ngModel)]="generalUsers.role_id" [(ngModel)]="loginData.role_id" > 
+                                                    <option value="">select Type of user account</option>
+                                                    <option type="radio"  *ngFor="let item of roles" value="{{item.roles_id}}" >
+                                                        {{item.role}}
+                                                    </option>
+                                                
+                                                </select>     
+                                        
+                                    </div>
+                                    <div class=" row"  >
+                                        <label for=""><code>Select Appropriate individual *</code> </label>
+                                                <select type="text" class="form-control" style="width: 100%;" name="role_id" [(ngModel)]="generalUsers.id" [(ngModel)]="loginData.id" >
+                                                    <option value="">select individual</option>
+                                                <option  [id]="'hodnames-'+i" value="{{item.id}}"*ngFor=" let item of hodnames; let i =   index" for="'hodnames-'+i">{{item.names}}</option>
+                                                </select>
+                                    </div>
+                                    
+                                     <div class="col-md-12 row" style="padding: 8px;">
+                                        <div class="col-md-6 ">
+                                            <button mat-raised-button class="btn btn-warning btn-sm">cancel</button>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <button  mat-raised-button class="btn btn-primary btn-sm" type="submit" (click)="OveralUserLoginInsert()">Register</button>
+                                        </div>
+                                    </div>
+    
+                                </div>
+
+
+
+                                
+                                <div class="col-md-12" id="third">
+                                  <form action="" (ngSubmit)="form.form.valid &&  insertUsers2()" style="width: 100%;">
+                                    
+                                    <div class="row">
+                                        <!-- Tutors-->
+                                        <div class="col-md-12" >
+                                           <label for="" class="text-center"><b><i><Code>Tutor and H.O.D Registration Section</Code></i></b> </label>
+                                               <select class="form-control" style="width: 100%;" (change)="GetTutorName($event)" name="role_id" #role_id="ngModel" [(ngModel)]="hodReg.role_id" [(ngModel)]="loginData2.role_id" > 
+                                                       <option value="">select Account User</option>
+                                                       <option  [id]="'rolesforTutorandHod-'+i" value="{{item.role_id}}"*ngFor=" let item of rolesforTutorandHod; let i =   index" for="'rolesforTutorandHod-'+i">{{item.role}}</option>
+                                                   
+                                               </select>     
+                                           
+                                       </div>
+                                      
+                                       <div class="col-md-6" *ngIf="TutorHodName" >
+                                           <label for=""><code>Select Individual user*</code> </label>
+                                                   <select type="text" class="form-control" style="width: 100%;" #id="ngModel"   name="id" [(ngModel)]="hodReg.id"  (change)="getDepIdFortutor($event)" (change)="getDepIdForhod($event)"  name="id" [(ngModel)]="loginData2.id" >
+                                                    <option value="">Select User</option>
+                                                   <option  [id]="'TutorHodName-'+i" value="{{item.id}}"*ngFor=" let item of TutorHodName; let i =   index" for="'TutorHodName-'+i">{{item.names}}</option>
+                                                   </select>
+                                       </div>
+           
+           
+                                       
+                                       <div class="col-md-6"  *ngIf="tutortdata && (deptdata==0)" >
+                                           <label for="">Select Tutor Department<code>*</code> </label>
+                                                   <select type="text" class="form-control" style="width: 100%;"  name="dept_id" [(ngModel)]="hodReg.dept_id">
+                                                   
+                                                   <option   [id]="'tutortdata-'+i" value="{{item.dept_id}}"*ngFor=" let item of tutortdata; let i =   index" for="'tutortdata-'+i">{{item.dept}}</option>
+                                                   </select>
+                                                   <div class="col-md-12 row" style="padding: 8px;">
+                                                    <div class="col-md-6 ">
+                                                        <button mat-raised-button class="btn btn-warning btn-sm">cancel</button>
+                                                    </div>
+                                                    <div class="col-md-6 text-right">
+                                                        <button  mat-raised-button class="btn btn-primary btn-sm"   type="submit" (click)="postTutorlogin()">Register Tutor</button>
+                                                    </div>
+                                                </div>
+                                       </div>
+
+                                       <div class="col-md-6"  *ngIf="deptdata  && (tutortdata==0)" >
+                                        <label for="">Select H.O.D Department<code>*</code> </label>
+                                                <select type="text" class="form-control" style="width: 100%;"  name="dept_id" [(ngModel)]="hodReg.dept_id">
+                                                
+                                                <option   [id]="'deptdata-'+i" value="{{item.dept_id}}"*ngFor=" let item of deptdata; let i =   index" for="'deptdata-'+i">{{item.dept}}</option>
+                                                </select>
+                                                <div class="col-md-12 row" style="padding: 8px;">
+                                                  <div class="col-md-6 ">
+                                                      <button mat-raised-button class="btn btn-warning btn-sm">cancel</button>
+                                                  </div>
+                                                  <div class="col-md-6 text-right">
+                                                      <button  mat-raised-button class="btn btn-primary btn-sm"   type="submit" (click)="postHODlogin()">Register Hod</button>
+                                                  </div>
+                                              </div>
+                                    </div>
+                                   </div>
+
+                                  </form>
+                                </div>
+
+                                <div class="col-md-12" id="fourth">
+                                     <div class="row col-md-12" style="width: 100%;">
+                            
+                                        <div class=" col-md-4" >
+                                           <label for="">Select student</label>
+                                                <select #id="ngModel"  name="id"  [(ngModel)]="student_users.id"  class="form-control" (change)="studentDeptCourse($event)" [(ngModel)]="loginData.id" > 
+                                                        <option value="">select student</option>
+                                                        <option type="text"  *ngFor="let item of studentforlogin" value="{{item.student_id}}" >
+                                                            {{item.names}}
+                                                        </option>
+                                                    
+                                      </select>
+        
+                                            
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="">Student's Course</label>
+                                            <select #course_level_id="ngModel"  name="course_level_id" [(ngModel)]="student_users.course_level_id" class="form-control"> 
+                        
+                                                <option type="hidden"  value="{{course_id}}" >
+                                                    {{course_name}}
+                                                </option>
+                                            
+                                            </select>
+                                        </div>
+                                        
+                                        <div  class=" col-md-4 " >
+                                            <label for="">Account Type </label>
+                                                <select   name="role_id" #name="ngModel" #id="ngModel" [(ngModel)]="loginData.role_id" name="id"  class="form-control" [(ngModel)]="student_users.role_id"> 
+                        
+                                                        <option  value="3335" >
+                                                            student
+                                                        </option>
+                                                    
+                                                    </select>     
+                                            
+                                        </div>
+                                    
+                                      </div>
+
+                                       <div class="col-md-12 row" style="padding: 8px;">
+                                        <div class="col-md-6 ">
+                                            <button mat-raised-button class="btn btn-warning btn-sm">cancel</button>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <button  mat-raised-button class="btn btn-primary btn-sm" type="submit" (click)="poststudentlogin()">Register student</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                           </div>
+                                               
+                          
+                         
+                   </form>
+                   <div class="col-md-12 text-left " style="padding: 10px;">
+                    <button  routerLink="../../users" mat-raised-button class="btn btn-info btn-sm">
+                        <mat-icon >login</mat-icon>
+                        login instead
+                    </button>
+                </div> 
+                 </div> 
+            
+            
+            </div>
+                  
+               
+            </div>
+            <div style="background-color: blue;padding: 5px;border-radius: 5px;margin: 3px;" id="ribbon">
+              <h6 style="text-align: center;color: white;font-weight: bolder;font-size: 20px;"><b><i>'Master the Training and experience the results'</i></b></h6>
+            </div>
+           
+            <!-- Button to Open the Modal -->
+     
+                <div id="menu1" class="container tab-pane fade">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab"  href="#active" >Students that can login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#menu2">Tutors that can log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu3">H.O.D that can log in </a>
+                      </li>
+                   
+                  </ul>
+                  <div class="tab-content">    
+                    <div id="active" class="container tab-pane active">
+                        <div class="col-md 6">
+                        <div class="text-right" style="width: 99%;margin-top: 20px;margin-bottom: 20px;">
+                            <mat-form-field appearance="outline" style="width: 50%;" (keyup)="applySearch($event)">
+                              <mat-label>Search </mat-label>
+                              <input matInput placeholder="Type here to search" >
+                            </mat-form-field>
+                          </div>
+                          
+                          <div>
+                            <table mat-table [dataSource]="StudentsAccountsInfo" matSort >
+                              <ng-container matColumnDef="student_id">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Admision Number</th>
+                                <td mat-cell *matCellDef="let row">{{row.student_id}}</td>
+                              </ng-container>
+                              <ng-container matColumnDef="names">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Full Names</th>
+                                <td mat-cell *matCellDef="let row">{{row.names}}</td>
+                              </ng-container>
+                              
+                              <ng-container matColumnDef="operations">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+                                <td mat-cell *matCellDef="let row">
+                                  <button class="btn btn-danger btn-sm mx-2" (click)="DelLoginStudent(row.student_id)" >Delete</button>
+                                </td>
+                              </ng-container>
+                              
+                              <tr mat-header-row *matHeaderRowDef="columns"></tr>
+                              <tr mat-row *matRowDef="let row; columns:columns;"></tr>
+                            </table>
+                          </div>
+                          <mat-paginator [length]="2000"  
+                                          [pageSize]="5"
+                                          [pageSizeOptions]="[5,10,15,20]">
+                                       
+                          </mat-paginator>
+                        
+                    </div>
+                    
+                    </div>
+                   
+
+
+                    <div id="menu2" class="container tab-pane fade">
+                        <div class="col-md 6">
+                        <div class="text-right" style="width: 99%;margin-top: 20px;margin-bottom: 20px;">
+                            <mat-form-field appearance="outline" style="width: 50%;" (keyup)="applySearch2($event)">
+                              <mat-label>Search </mat-label>
+                              <input matInput placeholder="Type here to search" >
+                            </mat-form-field>
+                          </div>
+                          
+                          <div>
+                            <table mat-table [dataSource]="TutorNamesLogin" matSort>
+                              <ng-container matColumnDef="dept">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tutor's Department</th>
+                                <td mat-cell *matCellDef="let row">{{row.dept}}</td>
+                              </ng-container>
+                              <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Dept Id</th>
+                                <td mat-cell *matCellDef="let row">{{row.id}}</td>
+                              </ng-container>
+                              <ng-container matColumnDef="names">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tutor's Full Names</th>
+                                <td mat-cell *matCellDef="let row">{{row.names}}</td>
+                              </ng-container>
+                              
+                              <ng-container matColumnDef="operations">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+                                <td mat-cell *matCellDef="let row">
+                                  <button class="btn btn-danger btn-sm mx-2" (click) ="DelLoginTutor(row.id)" >Delete</button>
+                                </td>
+                              </ng-container>
+                              
+                              <tr mat-header-row *matHeaderRowDef="columns2"></tr>
+                              <tr mat-row *matRowDef="let row; columns:columns2;"></tr>
+                            </table>
+                          </div>
+                          <mat-paginator [length]="100"  
+                                          [pageSize]="5"
+                                          [pageSizeOptions]="[5,10,15,20]">
+                                       
+                          </mat-paginator>
+                    </div>
+                    </div>
+
+
+                    <div id="menu3" class="container tab-pane fade">
+                        <div class="col-md 6">
+                        <div class="text-right" style="width: 99%;margin-top: 20px;margin-bottom: 20px;">
+                            <mat-form-field appearance="outline" style="width: 50%;" (keyup)="applySearch($event)">
+                              <mat-label>Search </mat-label>
+                              <input matInput placeholder="Type here to search" >
+                            </mat-form-field>
+                          </div>
+                          
+                          <div>
+                            <table mat-table [dataSource]="hodNamesLogin" matSort>
+                              <ng-container matColumnDef="dept_id">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>H.O.D Department</th>
+                                <td mat-cell *matCellDef="let row">{{row.dept_id}}</td>
+                              </ng-container>
+                              <ng-container matColumnDef="dept">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>H.O.D Department</th>
+                                <td mat-cell *matCellDef="let row">{{row.dept}}</td>
+                              </ng-container>
+                              <ng-container matColumnDef="names">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> H.O.D Full Names</th>
+                                <td mat-cell *matCellDef="let row">{{row.names}}</td>
+                              </ng-container>
+                              
+                              <ng-container matColumnDef="operations">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+                                <td mat-cell *matCellDef="let row">
+                                  <button class="btn btn-danger btn-sm mx-2"  (click) ="DelLoginHoD(row.dept_id)">Delete</button>
+                                 
+                                </td>
+                              </ng-container>
+                              
+                              <tr mat-header-row *matHeaderRowDef="columns3"></tr>
+                              <tr mat-row *matRowDef="let row; columns:columns3;"></tr>
+                            </table>
+                          </div>
+                          <mat-paginator [length]="10"  
+                                          [pageSize]="5"
+                                          [pageSizeOptions]="[5,10,15,20]">
+                                       
+                          </mat-paginator>
+                    </div>
+                </div>
+                <div style="background-color: blue;padding: 5px;border-radius: 5px;margin: 3px; margin-top: 10px;margin-bottom: 10px;">
+                  <h6 style="text-align: center;color: white;font-weight: bolder;font-size: 20px;"><b><i>'Master the Training and experience the results'</i></b></h6>
+                </div>
+                </div>
+                  </div>       
+</div>
+ 
+                  
+             
+

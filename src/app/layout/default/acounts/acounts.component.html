@@ -1,0 +1,253 @@
+
+<div class="card">
+  <center>
+    <h1 style="color: blue;"><b>Student's Schools Fees Management Information System</b></h1>
+    
+  </center>
+ 
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+  <h3 style="color: orange;text-align: center;font-size: 25px;"><b>New Student fee Details form</b></h3> 
+  <div class="col-md-12 row">
+    
+    <div class="col-md-2 text-right" style="padding-top:30px;"><h6 style="font-size: 15px;">Search student </h6></div>
+      
+    <div class="col-md-5 row" style="margin: 2px;"> 
+      <span>Student's Adm No</span> <select class="form-control" (change)="getOthers($event)" >
+        <option value="">Search by Adm No</option>
+        <option *ngFor="let all of alldetails" >{{all.student_id}}</option>
+      </select>
+    </div>
+    <div class="col-md-5 row"> 
+      <!-- <span>Student's Name</span> <select  class="form-control"  >
+        <option value="">Search by name</option>
+        <option *ngFor="let n of studentnames" value="{{n.AdmNumber}}">{{n.names}}</option>
+      </select> -->
+    </div>
+  </div>
+   <div class="col-md-12">
+     <form action="" [formGroup]="serve.details" class="normal-form" (ngSubmit)="postStudent()">
+       <mat-grid-list cols="2" rowHeight="400px">
+          <mat-grid-tile>
+            <div class="col-md-12 row" style="width: 100%">
+              <div class="col-md-12 text-center">
+                <h3>Student's Basic_details</h3>
+              </div>
+                  
+                  <div class="col-md-4">
+                    <h6 style="padding-top:10px; font-size: 15px;">Student's Adm Number</h6>
+                  </div>
+                  <div class="col-md-8 row " >
+                    <div class="col-md-4 form-control" style="padding-top: 23px;padding-bottom: 23px;margin-top: 5px;"  >
+                      <span *ngFor="let dtls of otherDetails">{{dtls.AdmNumber}}</span>
+                    </div>
+                    <div class="col-md-8" style="margin-bottom: 20px;"  >
+                   
+                      <mat-form-field appearance="outline" color="warn" style="width: 100%;">
+                        <mat-label>Confirm Admission Number </mat-label>
+                        <input  matInput formControlName="AdmNumber" [(ngModel)]="acm.AdmNumber" name="AdmNumber" >
+                      </mat-form-field>
+                      
+                    </div> 
+                    
+                    
+                   </div>  
+            
+                  <div class="col-md-4">
+                    <h6 style="padding-top:10px; font-size: 15px;">Student's Gender</h6>
+                  </div>
+                  <div class="col-md-8 form-control" style="margin-bottom: 20px;">
+                    <span *ngFor="let dtls of otherDetails">{{dtls.gender}}</span>
+                    
+                  </div>  
+            
+                  <div class="col-md-4" style="width: 100%;">
+                    <h6 style="padding-top:10px; font-size: 15px;">Course & Level</h6>
+                  </div>
+                  <div class="col-md-8 form-control" style="width: 100%;margin-bottom: 20px;">
+                    <span *ngFor="let dtls of otherDetails">{{dtls.level}}</span>
+                    
+                  </div>  
+            
+                  <div class="col-md-4" style="width: 100%;">
+                    <h6 style="padding-top:10px; font-size: 15px;">Year of Study</h6>
+                  </div>
+                  <div class="col-md-8 form-control" style="width: 100%;margin-bottom: 20px;">
+                    <span >{{yr|date}}</span>
+                  </div> 
+                 
+                  
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="col-md-12 row">
+              <div class="col-md-12">
+                <h3 class="text-center">School Fees Details</h3>
+              </div>
+                
+ 
+              
+              
+                  
+                
+                  <mat-form-field appearance="outline" style="width: 100%;" >
+                    <mat-label>Outstanding Balance in KES</mat-label>
+                    <input type="text" matInput formControlName="Bal" [(ngModel)]="acm.Bal" >
+                  </mat-form-field>
+             
+                  <div class="col-md-6">
+                    <mat-form-field appearance="outline" color="warn" style="width: 100%;">
+                      <mat-label>Pay Date </mat-label>
+                      <input type="date" matInput formControlName="pdate" [(ngModel)]="acm.pdate" name="pdate" >
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6 " style="width: 100%;">
+                    <mat-form-field appearance="outline" style="width: 100%;" >
+                      <mat-label>Class Attendance Expiry Date</mat-label>
+                      <input formControlName="RenewalDate" matInput type="date" [(ngModel)]="acm.RenewalDate" name="RenewalDate">
+                    </mat-form-field>
+                </div> 
+              
+             
+                 
+                
+              
+                <div class="col-md-9">
+                  <mat-form-field appearance="outline" color="warn" style="width: 100%;">
+                    <mat-label>Select Semester Session </mat-label>
+                    <mat-select matInput formControlName="session" [(ngModel)]="acm.session" name="session">   
+                      
+                      <mat-option *ngFor="let session of Semester" value="{{session}}">{{session}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                  <mat-form-field appearance="outline" color="warn" style="width: 100%;">
+                    <mat-label>Year </mat-label>
+                    <mat-select matInput formControlName="currentyear" [(ngModel)]="acm.currentyear" name="currentyear">
+                      <mat-option *ngFor="let year of Years" value="{{year}}">{{year}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                
+              
+              <div class="col-md-6" style="width: 100%;">
+                <button  class="btn btn-sm btn-primary">View Details for all students</button>
+              </div>
+              <div class="text-right col-md-6" style="width: 100%;">
+                <button class="btn btn-sm btn-warning mx-2" (click)="collapse.toggle()" (click)="toggle()" [attr.aria-expanded]="!isCollapsed"
+                aria-controls="collapseExample" [class.expanded]="expanded">close window</button>
+                <button type="submit" class="btn btn-sm btn-success">Submit</button>
+              </div>
+              
+            </div>
+          </mat-grid-tile>
+       </mat-grid-list>
+     </form>
+   </div>
+</div>
+  
+      
+ 
+  <mat-card>
+ 
+    
+      <div class=" col-md-12 row">
+        <div class="col-md-6">
+          <p>
+            <button type="button" class="btn  btn1" (click)="collapse.toggle()" (click)="toggle()" [attr.aria-expanded]="!isCollapsed"
+            aria-controls="collapseExample" [class.expanded]="expanded">
+            <span></span><span></span> <a routerLinkActive="active" class="link" [routerLink]="'accounts'" class="ln" mat-nav-list-item >View Students With Expiry Class Attendance Sheets</a>
+          </button> 
+          <button type="button" class="btn  btn1" (click)="collapse.toggle()" (click)="toggle()" [attr.aria-expanded]="!isCollapsed"
+          aria-controls="collapseExample" [class.expanded]="expanded">
+          <span></span><span></span> <a routerLinkActive="active" class="link" [routerLink]="'activated-student'" class="ln" mat-nav-list-item >Activated Students After Deferment</a>
+        </button> 
+        </p>
+        </div>
+        <div class="col-md-6 text-right">
+          <button class="btn btn-info btn-sm" (click)="openReg()">Add new student to fee Balace List</button>
+        </div>
+       
+        
+      </div>
+      <div class="text-right" style="width: 99%;margin-top: 20px;margin-bottom: 20px;">
+      <mat-form-field appearance="outline" style="width: 50%;" (keyup)="applySearch($event)">
+        <mat-label>Search </mat-label>
+        <input matInput placeholder="Type here to search" >
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <table mat-table [dataSource]="StudentsAccountsInfo" matSort>
+        <ng-container matColumnDef="student_id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Admision Number</th>
+          <td mat-cell *matCellDef="let row">{{row.student_id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="names">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Full Names</th>
+          <td mat-cell *matCellDef="let row">{{row.names}}</td>
+        </ng-container>
+        <ng-container matColumnDef="course">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Course</th>
+          <td mat-cell *matCellDef="let row">{{row.course}}</td>
+        </ng-container>
+        <ng-container matColumnDef="level">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Level of Study</th>
+          <td mat-cell *matCellDef="let row">{{row.level}}</td>
+        </ng-container>
+       
+       
+        <ng-container matColumnDef="RenewalDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Next Payment expected On</th>
+          <td mat-cell *matCellDef="let row">{{row.RenewalDate | date:'mediumDate'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="NewBal">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Outstanding Balance</th>
+          <td mat-cell *matCellDef="let row">KES. {{row.NewBal}}</td>
+        </ng-container>
+        <ng-container matColumnDef="pdate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Allowed In Class Days</th>
+          <td mat-cell *matCellDef="let row" >
+            <span [ngClass]="(dayRem(row)>=5)?'text-success':'text-danger'"><mat-icon inline="true">radio_button_checked</mat-icon>  {{dayRem(row)}} days Remaining</span>
+            
+          </td>
+          
+        </ng-container>
+        <ng-container matColumnDef="session">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Semester Session</th>
+          <td mat-cell *matCellDef="let row">{{row.session}}</td>
+        </ng-container>
+        <ng-container matColumnDef="enrolyr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Year of Study</th>
+          <td mat-cell *matCellDef="let row">{{calcYear(row)}}</td>
+        </ng-container>
+        <ng-container matColumnDef="operations">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+          <td mat-cell *matCellDef="let row">
+            <button class="btn btn-primary btn-sm mx-2" (click)="openUpdate()">Request Pay</button>
+            <button class="btn btn-success btn-sm"  routerLink="update/{{row.student_id}}">Receive Pay</button>
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns:columns;"></tr>
+      </table>
+    </div>
+    <mat-paginator [length]="10000"  
+                    [pageSize]="3"
+                    [pageSizeOptions]="[1,3,9,12]">
+                 
+    </mat-paginator>
+  </mat-card>
+  
+</div>
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+

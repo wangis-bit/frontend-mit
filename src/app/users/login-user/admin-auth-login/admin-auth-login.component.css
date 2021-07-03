@@ -1,0 +1,8 @@
+:host{
+    margin: 20px;
+}
+img{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 100px;
+}

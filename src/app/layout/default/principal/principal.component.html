@@ -1,0 +1,284 @@
+
+<div class="card col-md-6 offset-md-3" style="margin-top:20px">
+  <div class=" text-center" style="padding: 10px;">
+    <h2 class="text-primary" style="font-size: 30px;">Fee Management Information System-MIT</h2>
+
+<cite style="color:blue">Student's System Registartion Point</cite>
+</div>
+  <div class="text-center  col-md-12" style="padding: 8px;">
+    <h1>Students's Detail's Entry Form</h1>
+  </div>
+  <div>
+    <mat-divider></mat-divider>
+  </div>
+  <form [formGroup]="students.details" class="normal-form">
+    <h1 class="text-center"> Student_info </h1>
+    <div class="col-md-12 row" style="margin-top:10px;margin-bottom:10px">
+      <div class="col-md-4" style="width: 100%;">
+        <label for="">Student Names</label>
+        <mat-form-field appearance="outline"  style="width: 100%;">
+          <mat-label>Student's Full_Names</mat-label>
+          <input type="text" matInput
+         placeholder="Enter Name" formControlName="StudentName">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4" style="width: 100%;">
+        <label for="">Student Admission Number</label>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Student's Adm No</mat-label>
+          <input type="text" formControlName="StudentName" matInput>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4" style="width: 100%;">
+        <label for="">Student's Gender'</label><br><br>
+        
+        <ng-container [formGroup]="Gender">
+          <mat-label style="margin-right:8px" ><input class="mx-1" type="radio" formControlName="gdr" value="male" >Male</mat-label>
+          <mat-label><input class="mx-1" type="radio" formControlName="gdr" value="female">Female</mat-label>
+        </ng-container>
+        
+      </div>
+    </div>
+    <div>
+      <mat-divider></mat-divider>
+    </div>
+    <h1 class="text-center"> Course Enrolment Details </h1>
+    
+   
+    <div class="col-md-12 row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Student's Department</mat-label>
+          <input type="text " formControlName="Department" matInput>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline" style="width: 100%;" >
+          <mat-label>Date Enrolled</mat-label>
+          <input formControlName="AdmDate" matInput  type="date">
+          <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
+          <!-- <mat-datepicker #picker></mat-datepicker> -->
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Course_Initials</mat-label>
+          <input type="text " formControlName="Department" matInput>
+        </mat-form-field>
+      </div>
+      <div class="col-md-5">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Course Name</mat-label>
+          <input type="text " formControlName="Department" matInput>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Course Level</mat-label>
+          <input type="text " formControlName="Department" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="col-md-12  row " style="margin: 10px;" >
+      <div class="col-md-6 ">
+        <button  class=" btn btn-success btn-small">View Registered Students</button>
+      </div>
+      <div class="col-md-6 text-right">
+        <button mat-raised-button color="primary" class="mx-2">Submmit</button>
+        <button mat-raised-button color="accent">Close</button>
+      </div>
+     
+    </div>
+    <div>
+      <mat-divider></mat-divider>
+    </div>
+   
+  </form>
+        
+</div>
+
+
+ <div class="container" style="margin-top: 50px;">
+    <div class="card">
+       
+        <div class="card-body">
+            <div class="container text-right" style="margin-bottom: 6px;"> 
+                <button mat-icon-button>
+                    <mat-icon>person_add</mat-icon>
+                </button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal1">New Student</button>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Adm No</th>
+                    <th>Full Names</th>
+                    <th>Gender</th>
+                    <th>Course_code</th>
+                     <th>Course_level</th>
+                     <th>Course_Name</th>
+                     <th>Dept</th>
+                     <th>Year_of_Study</th>
+                     <th>Operation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1230</td>
+                    <td>Doe Sum</td>
+                    <td>Male</td>
+                    <td>CICT</td>
+                    <td>Certificate</td>
+                    <td>ICT</td>
+                    <td>ICT Dep</td>
+                    <td>1st Year</td>
+                    <td>
+                        <button data-toggle="modal" data-target="#myModal" class="btn btn-warning">Edit</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1230</td>
+                    <td>Doe Sum</td>
+                    <td>Male</td>
+                    <td>CICT</td>
+                    <td>Certificate</td>
+                    <td>ICT</td>
+                    <td>ICT Dep</td>
+                    <td>1st Year</td>
+                    <td>
+                        <button data-toggle="modal" data-target="#myModal" class="btn btn-warning">Edit</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1230</td>
+                    <td>Doe Sum</td>
+                    <td>Male</td>
+                    <td>CICT</td>
+                    <td>Certificate</td>
+                    <td>ICT</td>
+                    <td>ICT Dep</td>
+                    <td>1st Year</td>
+                    <td>
+                        <button data-toggle="modal" data-target="#myModal" class="btn btn-warning">Edit</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1230</td>
+                    <td>Doe Sum</td>
+                    <td>Male</td>
+                    <td>CICT</td>
+                    <td>Certificate</td>
+                    <td>ICT</td>
+                    <td>ICT Dep</td>
+                    <td>1st Year</td>
+                    <td>
+                        <button data-toggle="modal" data-target="#myModal" class="btn btn-warning">Edit</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1230</td>
+                    <td>Doe Sum</td>
+                    <td>Male</td>
+                    <td>CICT</td>
+                    <td>Certificate</td>
+                    <td>ICT</td>
+                    <td>ICT Dep</td>
+                    <td>1st Year</td>
+                    <td>
+                        <button data-toggle="modal" data-target="#myModal" class="btn btn-warning">Edit</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1230</td>
+                    <td>Doe Sum</td>
+                    <td>Male</td>
+                    <td>CICT</td>
+                    <td>Certificate</td>
+                    <td>ICT</td>
+                    <td>ICT Dep</td>
+                    <td>1st Year</td>
+                    <td>
+                        <button data-toggle="modal" data-target="#myModal" class="btn btn-warning">Edit</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+             
+        </div> 
+
+        <!-- Add user Modal -->
+
+        <div class="container">
+          
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+              
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Modal Heading</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                  Modal body..
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        
+
+        <!-- Editing Modal -->
+        <div class="container">
+         
+        
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+              
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Modal Heading</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                  Modal body..
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        
+      <div class="container text-right" style="margin-bottom: 6px;"> 
+        <button mat-icon-button>
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-raised-button routerLink="" color="warn">Back</button>
+    </div>       
+  </div>

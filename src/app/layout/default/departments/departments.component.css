@@ -1,0 +1,29 @@
+.active{
+    background-color: maroon;
+    color: white;
+     font-weight:bolder;
+     font-size: 15px;
+     padding: 5px;
+     border-radius: 5px;
+     
+     
+ }
+ul li{
+    list-style: none;
+    display: inline;
+    
+}
+
+li{
+    margin: 5px;
+    
+}
+li a:hover{
+    background-color: maroon;
+    color: white;
+    padding: 3px;
+    border-radius: 4px;
+}
+#link{
+    color: white;
+}

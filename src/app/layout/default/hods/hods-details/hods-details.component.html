@@ -1,0 +1,119 @@
+
+
+<div  style="padding: 20px; background-color: rgb(218, 235, 253);" *ngIf="arr">
+    <button mat-raised-button routerLink="../../">HOD Dashboard</button>
+    <div class="row" style="padding-top: 10px;">
+      <div class="col-md-3">
+        <img src="assets/mit.png" alt="assets/mit.png">
+      </div>
+      <div class="col-md-6 text-center">
+        <h1 class="text-success " style="font-size: 30px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">The <span><b>{{arr.dept}}</b></span></h1>
+      <h2 class="text-info ">HOD : <span style="font-weight: bolder;"><u>{{arr.names}}</u></span></h2>
+      <h6 style="font-size: 20px;"><b><u>Date: {{today |date:"mediumDate"}}</u></b></h6>
+      </div>
+      <div class="col-md-3 text-right">
+        <img src="assets/production-logo.jpg" alt="">
+      </div>
+    </div>
+    
+
+    <div class="row" style="width: 100%;">
+      <div class="row col-md-12" style="padding-top: 10px;width: 100%;">
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" style="width: 100%;" (keyup)="applySearch($event)" *ngIf="source_info">
+            <mat-label>Search </mat-label>
+            <input matInput placeholder="Type here to search" >
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 text-right">
+          <button class="btn btn-sm btn-outline-primary mx-2" (click)="getDepartmentCourses($event)" value="{{arr.dept_id}}"  >Load Student Info</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <select name="" id="" class="form-control" *ngIf="DepartmentCourses" (change)="getLevelsOfCourses($event)">
+          <label for="Course Level"> Course</label>
+          
+          <option *ngFor="let DepartmentCourse of DepartmentCourses" value="{{DepartmentCourse.course_id}}">{{DepartmentCourse.course}}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <select name="" id="" class="form-control" *ngIf="DepartmentCourseLevels" (change)="getStudents($event)">
+          <label for="Course Level"> Course Level</label>
+          <option *ngFor="let levels of DepartmentCourseLevels" value="{{levels.course_level_id}}">{{levels.course_level}}</option>
+        </select>
+      </div>
+      
+        
+        
+        
+      </div>
+      
+      <div style="padding-top: 10px;" *ngIf="source_info">
+        <table mat-table [dataSource]="StudentsAccountsInfo" matSort>
+          <ng-container matColumnDef="student_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Admision Number</th>
+            <td mat-cell *matCellDef="let row">{{row.student_id}}</td>
+          </ng-container>
+    
+          <ng-container matColumnDef="NewBal">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Fees Balance</th>
+            <td mat-cell *matCellDef="let row">KES. {{row.NewBal}}</td>
+          </ng-container> 
+    
+    
+          <ng-container matColumnDef="names">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Full Names</th>
+            <td mat-cell *matCellDef="let row">{{row.names}}</td>
+          </ng-container>
+          <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Gender</th>
+            <td mat-cell *matCellDef="let row">{{row.gender}}</td>
+          </ng-container>
+          <ng-container matColumnDef="RenewalDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Remaining Days</th>
+            <td mat-cell *matCellDef="let row">
+              <span [ngClass]="(dayRem(row)>=5)?'text-success':'text-danger'"><mat-icon inline="true">radio_button_checked</mat-icon>  {{dayRem(row)}} days Remaining</span>
+            </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="enrolyr">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Enrolled Year</th>
+            <td mat-cell *matCellDef="let row">{{row.enrolyr}}</td>
+          </ng-container>
+         
+        
+          <ng-container matColumnDef="complettionYear">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Year of Completion</th>
+            <td mat-cell *matCellDef="let row">{{row.complettionYear}}</td>
+          </ng-container>
+          
+          <ng-container matColumnDef="operations">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+            <td mat-cell *matCellDef="let row">
+    
+              <button mat-icon-button   color="primary" >
+               Request Fees
+              </button>
+              
+              
+            </td>
+          </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="columns"></tr>
+          <tr mat-row *matRowDef="let row; columns:columns;"></tr>
+        </table>
+        <mat-paginator [length]="10000"  
+        [pageSize]="15"
+        [pageSizeOptions]="[15,30,60,120, 400, 1000,2000]">
+     
+      </mat-paginator>
+      <div class="container text-right" style="margin-bottom: 6px;"> 
+      <button mat-icon-button>
+
+      </button>
+
+
+  </div>  
+      </div>
+     
+</div>

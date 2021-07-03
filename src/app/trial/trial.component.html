@@ -1,0 +1,53 @@
+<!-- <form action="" #form="ngForm" (ngForm)="service.student" autocomplete="false">
+    <div class="form-group">
+        <div class="col-md-5 row" style="margin: 2px;"> 
+            <span>Student's Adm No</span> <select [(ngModel)]="acm.student_id" name="student_id" class="form-control" (change)="getOthers($event.target)" >
+              <option value="0">Search by Adm No</option>
+              <option *ngFor="let id of nm" value="{{id.student_id}}" >{{id.student_id}}</option>
+            </select>
+          </div>
+        <div class="form-control">
+            <label for="">Student Name</label>
+            <select name="names" #names="ngModel" [(ngModel)]="service.student.names" style="width: 50%;" (change)="loadAdmNo($event.target)">
+                <option value="0">select student</option>
+                <option *ngFor="let info of student_info" value="{{info.AdmNumber}}">Adn No. {{info.AdmNumber}} Name: {{info.names}}</option>
+            </select>
+            
+        </div>
+        <div class="form-control">
+            <label for="">Student Adm No</label>
+            <input name="AdmNumber"  #AdmNumber="ngModel" [(ngModel)]="service.student.AdmNumber" [(ngModel)]="acm.AdmNumber" (displayWith)="displayFn">
+        </div>
+        <div class="form-control">
+            <label for="">Total Fees</label>
+            <input name="Fees" #Fees="ngModel" [(ngModel)]="service.student.Fees">
+        </div>
+        <div class="form-control">
+            <label for="">Amount Paid</label>
+            <input name="AmtPd" #AmtPd="ngModel" [(ngModel)]="service.student.AmtPd">
+        </div>
+        <div class="form-control">
+            <label for="">Balance</label>
+            <input name="Bal" #Bal="ngModel" [(ngModel)]="service.student.Bal">
+        </div>
+    </div>
+    <input type="text">
+</form> -->
+<form action="" [formGroup]="form" class="calc" (ngSubmit)="getValues()">
+    <mat-form-field width="100%">
+        <mat-label>num 1</mat-label>
+        <input matInput formControlName="num1"id="num1">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>num 2</mat-label>
+        <input matInput formControlName="num2"id="num2">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>num 3</mat-label>
+        <input matInput formControlName="num3" id="num3" value="num3" >
+    </mat-form-field>
+    
+    <button type="submit" id="sum">submit</button>
+    
+</form>
+

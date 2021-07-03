@@ -1,0 +1,80 @@
+<mat-card>
+    <div class="container">
+      <center>
+        <h2 class="text-primary" style="font-size: 25px;"><b>Student's Activation Center - Machakos Institute of Technology</b></h2>
+        <h5 style="color: rgb(18, 4, 80);font-size: 20px;"><b><i>Get Student Back To Class</i></b></h5>
+      </center>
+    </div>
+   
+    <div class="text-right" style="width: 100%;">
+      <mat-form-field appearance="outline" style="width: 25%;" (keyup)="applySearch($event)">
+        <mat-label>Search </mat-label>
+        <input matInput placeholder="Type here to search" >
+      </mat-form-field>
+      <button mat-raised-button routerLink="../" color="warn" class="mx-2">Clear a student</button>
+    </div>
+    
+    <div>
+      <table mat-table [dataSource]="StudentsAccountsInfo" matSort>
+        <ng-container matColumnDef="AdmNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Admision Number</th>
+          <td mat-cell *matCellDef="let row">{{row.AdmNumber}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="NewBal">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Fees Balance</th>
+          <td mat-cell *matCellDef="let row">KES. {{row.NewBal}}</td>
+        </ng-container> 
+  
+  
+        <ng-container matColumnDef="names">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Full Names</th>
+          <td mat-cell *matCellDef="let row">{{row.names}}</td>
+        </ng-container>
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Gender</th>
+          <td mat-cell *matCellDef="let row">{{row.gender}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="enrolyr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Enrolled Year</th>
+          <td mat-cell *matCellDef="let row">{{row.enrolyr}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef="complettionYear">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Year of Completion</th>
+          <td mat-cell *matCellDef="let row">{{row.complettionYear}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="operations">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+          <td mat-cell *matCellDef="let row">
+  
+            <button mat-icon-button routerLink="../activateform/{{row.AdmNumber}}" color="primary" (click)="delDefer(row.AdmNumber)">
+             Activate student
+            </button>
+            
+            
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns:columns;"></tr>
+      </table>
+    </div>
+    <mat-paginator [length]="10000"  
+                    [pageSize]="25"
+                    [pageSizeOptions]="[25,30,60,120, 400, 1000,2000]">
+                 
+    </mat-paginator>
+    <div class="container text-right" style="margin-bottom: 6px;"> 
+      <button mat-icon-button>
+          
+      </button>
+     
+      
+  </div>  
+  </mat-card>
+  
+  
+  

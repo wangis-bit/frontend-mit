@@ -1,0 +1,25 @@
+/* .container {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+    grid-gap: 20px;
+    place-content: center;
+    margin-top: 30px;
+  
+    
+  }
+  */
+  .ani:hover{
+    background-color: rgb(235, 191, 191);
+    color: white;
+    border-radius: 5px;
+  }
+  .ani a:hover{
+    font-weight: bolder;
+    color: white;
+    
+  }
+  .txt:hover{
+      background-color: rgb(238, 166, 11);
+      color: white;
+  }

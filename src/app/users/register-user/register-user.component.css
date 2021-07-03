@@ -1,0 +1,15 @@
+:host{
+    margin: 20px;
+   
+}
+table{
+    width: 100%;
+}
+img{
+    border-radius: 50%;
+    object-fit: cover;;
+    width: 100px;
+}
+body{
+    background-color: lightgreen;
+}

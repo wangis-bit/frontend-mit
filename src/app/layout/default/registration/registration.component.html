@@ -1,0 +1,126 @@
+
+
+
+<div class="card col-md-12" style="margin: auto;">
+  <center>
+    <h2 class="text-primary" style="font-size: 30px;">Fee Management Information System-MIT</h2>
+     <cite style="color:blue">Student's System Registartion Point</cite>
+     <div class=" col-md-12" style="padding: 8px;">
+      <h1>Students's Detail's Entry Form</h1>
+    </div>
+  </center>
+  <div class="text-center">
+    <span [ngClass]="(status==1)?'text-success':'text-danger'">{{msg}}</span>
+  </div>
+    <mat-divider></mat-divider>
+    <form [formGroup]="students.details" class="normal-form" (ngSubmit)="postRegDetails()">
+      <div class="col-md-12 row">
+        <div class="col-md-12">
+          <h3 class="text-center"><b> Student's Essential Details</b> </h3>
+        </div>
+        <div class="col-md-4" style="width: 100%;">
+          <label for="">Student Names</label>
+          <mat-form-field appearance="outline"  style="width: 100%;">
+            <mat-label>Student's Full_Names <code>*</code></mat-label>
+            <input type="text" matInput
+           placeholder="Enter Name" formControlName="names" [(ngModel)]="reg.names" (keypress)="validateLetter($event)">
+           <mat-error *ngIf="students.details.controls['names'].errors?.required">This field cannot be empty</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4" style="width: 100%;">
+          <label for="">Student Admission Number</label>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Student's Adm No <code>*</code></mat-label>
+            <input type="text" formControlName="AdmNumber" matInput formControlName="student_id" [(ngModel)]="reg.student_id" 
+            [(ngModel)]="reg.AdmNumber" (keypress)="validateNumber($event)">
+            <mat-error *ngIf="students.details.controls['student_id'].errors?.required">Input Admission Number</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4" style="width: 100%;">
+          <label for="">Student's Gender' <code>*</code></label><br><br>
+          
+          <ng-container >
+            <mat-label style="margin-right:8px" ><input class="mx-1" type="radio" formControlName="gender" value="Male" [(ngModel)]="reg.gender" >Male</mat-label>
+            <mat-label><input class="mx-1" type="radio" formControlName="gender" value="Female" [(ngModel)]="reg.gender" >Female</mat-label>
+            <mat-error *ngIf="students.details.controls['gender'].errors?.required">please select gender</mat-error>
+          </ng-container>
+          
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="col-md-12 row" style="margin-top: 20px;">
+        <div class="col-md-12 text-center">
+          <h3 ><b>Course Enrolment Details</b>  </h3>
+        </div>
+          <div class="col-md-6">
+            <label for="">Student's Department <code>*</code></label>
+            <select class="form-control" style="width: 100%;" (change)="getCourses($event)" formControlName="dept_id"  [(ngModel)]="reg.dept_id">
+              
+              <option *ngFor="let c of cs" value="{{c.dept_id}}" >{{c.dept}}</option>
+              
+            </select>
+            <mat-error *ngIf="students.details.controls['dept_id'].errors?.required">Select Department</mat-error>
+          </div>
+          <div class="col-md-6 row">
+            <div class="col-md-6">
+              
+              <mat-form-field appearance="outline" style="width: 100%;" >
+              <mat-label>Year of Enrolment <code>*</code></mat-label>
+              <input type="date"formControlName="complettionYear"  [(ngModel)]="reg.complettionYear"  matInput >
+              <mat-error *ngIf="students.details.controls['complettionYear'].errors?.required">Choose Year Student started studies</mat-error>
+            </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              
+              <mat-form-field appearance="outline" style="width: 100%;" >
+              <mat-label>Year of Completion <code>*</code></mat-label>
+              <input type="date"formControlName="enrolyr"  [(ngModel)]="reg.enrolyr"  matInput >
+              <mat-error *ngIf="students.details.controls['enrolyr'].errors?.required">Choose Year Student will complete studies</mat-error>
+            </mat-form-field>
+            </div>
+            
+          
+          </div>
+          <div class="col-md-6">
+            
+                <label for="">Student's Course <code>*</code></label>
+                <select name="" id="" class="form-control" style="width: 100%;" (change)="getCourseslevel($event)" formControlName="course" [(ngModel)]="reg.course">
+                  
+                  <option *ngFor="let details of otherDetails" value="{{details.course_id}}">{{details.course}}</option>
+                </select>
+                <mat-error *ngIf="students.details.controls['course'].errors?.required">Select Course</mat-error>
+           
+          </div>
+          <div class="col-md-6">
+
+                <label for="">Level of Study <code>*</code></label> 
+                  <select class="form-control" formControlName="course_level_id"  [(ngModel)]="reg.course_level_id">
+                    <option value="">Select Course level</option>
+                    <option  *ngFor="let level of levels" value="{{level.course_level_id}}">{{level.course_level}}</option>
+                  </select>
+                  <mat-error *ngIf="students.details.controls['course_level_id'].errors?.required">Select Course Level</mat-error>
+          </div>
+          <!-- <div class="col-md-4">
+            <mat-form-field appearance="outline" style="width: 100%;" >
+              <mat-label>Course Total Fees</mat-label>
+              <input type="text " formControlName="Fees" matInput [(ngModel)]="reg.Fees" (keypress)="validateNumber($event)"> 
+             </mat-form-field>
+          </div> -->
+          <mat-divider></mat-divider>
+        </div>
+        <div class="col-md-12  row " style="margin: 10px;" >
+            <div class="col-md-6 ">
+              <button  class=" btn btn-success btn-small" routerLink="../list">View Registered Students</button>
+            </div>
+            <div class="col-md-6 text-right">
+              <button mat-raised-button color="primary" class="mx-2" type="submit">Submmit</button>
+              <button mat-raised-button routerLink="" color="accent" >Close</button>
+            </div>  
+        </div>
+      
+      </form>
+  
+</div>
+  
+   
+    <router-outlet></router-outlet>

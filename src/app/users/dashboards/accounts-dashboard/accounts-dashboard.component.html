@@ -1,0 +1,10 @@
+<app-accountsheader (toggleSideBarForMe)="sideToggler()"></app-accountsheader>
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-accountsidebar></app-accountsidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+<app-footer></app-footer>

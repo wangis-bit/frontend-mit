@@ -1,0 +1,12 @@
+<!-- <p *ngIf="user" class="text-danger">{{user.email}}</p> -->
+<app-adminheader (toggleSideBarForMe)="sideToggler()"></app-adminheader>
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        
+        <app-adminsiderbar></app-adminsiderbar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+<app-footer></app-footer>

@@ -1,0 +1,49 @@
+<div class="card" style="padding: 10px;background-color: lightblue;">
+    <div class="card  text-center" style="padding: 10px;border-radius: 5px;background-color: rgb(46, 46, 248);">
+        <div class="row">
+
+            <div class="col-md-6 text-center offset-md-3">
+                <h1 style="font-size: 30px; color: white;font-weight: bolder;"> Student's Fees Management Information System</h1>
+                <h1 style="font-size: 30px; color: white;font-weight: bolder;"> <b>Student's Dasboard</b></h1>
+                
+                
+            </div>
+            <div class="col-md-3 text-center">
+                <img src="assets/production-logo.jpg" alt="">
+                <h6 style="color: white;">Wangi's Computer sofware solution,<br> <b><i>"Making it happen"</i></b></h6>
+                
+
+                
+            </div>
+        </div>
+       
+       
+    </div>
+    <div class="" style="padding: 10px;">
+        <h1 style="font-size: 30px;color: blue;font-weight: bolder;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Machakos Institute of Technology</h1>
+        <h1  style="color:rgb(2, 37, 2);font-size:20px"><b><i>Master the training and experience the results</i></b></h1><hr>
+        <h1 *ngIf="user">Welcome {{user.name}}</h1>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p style="color: blue;">You are logged in as a student</p>
+        </div>
+        <div class="col-md-6">
+            <h4 *ngIf="user">Username: <span style="color: rgb(43, 28, 1);"><b>{{user.name}},</b></span> </h4>
+            <h4 *ngIf="user">Admission Number: <span style="color: rgb(43, 28, 1);"><b>{{user.id}},</b></span></h4>
+            <h4 *ngIf="user">E-mail address: <span style="color: rgb(43, 28, 1);"><b>{{user.email}},</b></span></h4>
+            
+        </div>
+        
+    </div>
+    <hr>
+    <div class="card  text-center" style="padding: 10px;border-radius: 5px;background-color: rgb(46, 46, 248);">
+        <div class="">
+            
+            <h6 style="color: white;">The Machkos Institute of Technology - Student's reseravtion center</h6>
+            <h6 style="color: white;">Courtesy of Wangila; <b><i>All right reserved &copy; 2021</i></b></h6>
+            
+        </div>
+    </div>
+</div>

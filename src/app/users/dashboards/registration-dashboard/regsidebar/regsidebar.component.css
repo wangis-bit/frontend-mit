@@ -1,0 +1,96 @@
+.profile-card{
+    text-align: center;
+}
+img{
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.btn1 {
+    
+    width: 40px;
+    height: 40px;
+    border: 5px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    position: relative;
+    outline: none;
+    /* margin: 5px;
+    padding: 10px; */
+  }
+  
+  button span {
+    position: absolute;
+    transition: 0.3s;
+    background:black;
+    border-radius: 10px;
+  }
+  
+  button span:first-of-type {
+    top: 30%;
+    bottom: 30%;
+    width: 10%;
+    left: 45%;
+  }
+  
+  button span:last-of-type {
+    left: 30%;
+    right: 30%;
+    height: 10%;
+    top: 45%;
+  }
+  
+  button.expanded span:first-of-type,
+  button.expanded span:last-of-type {
+    transform: rotate(90deg);
+  }
+  
+  button.expanded span:last-of-type {
+    left: 50%;
+    right: 50%;
+  }
+  .ln{
+      
+      color: blue;
+      font-size: 16px;
+      margin-left: 20px;
+      
+  }
+
+  .ln1{
+      
+    color: green;
+    
+    font-size: 14px;
+    
+    
+}
+.ln1:hover{
+      
+    color: maroon;
+    text-decoration: underline;
+    font-size: 15px;
+    
+    
+}
+.active{
+   color: rgb(48, 2, 2);
+    font-weight:bolder;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    
+    
+}
+.list-group2{
+  padding: 10px;
+  margin: 5px;
+  background-color: rgb(250, 173, 57);
+  border-radius: 5px;
+}
+#dashboard a:link:active{
+  color: red;
+
+}

@@ -1,0 +1,12 @@
+ul li{
+    list-style: none;
+    display:inline-flex;
+    justify-content: space-around;
+
+}
+li{
+    margin:20px
+}
+body{
+    background-color: burlywood;
+}

@@ -1,0 +1,56 @@
+<h4 class="display-2">Receive Fee Payment</h4><hr>
+
+<form #form="ngForm" autocomplete="false" (submit)="onSubmit(form)" (ngSubmit)="postStudent()">
+    <input type="hidden"  name="studentID" #studentID="ngModel" [(ngModel)]="formData.studentID">
+    <input type="hidden"  name="CourseName" #CourseName="ngModel" [(ngModel)]="formData.CourseName">
+    <input type="hidden"  name="FeesPaid" #FeesPaid="ngModel" [(ngModel)]="formData.FeesPaid">
+    <input type="hidden"  name="Name" #Name="ngModel" [(ngModel)]="formData.Name">
+    <input type="hidden"  name="FeeBal" #FeeBal="ngModel" [(ngModel)]="formData.FeeBal">
+    <div class="row col-md-10 offset-md-1">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label >Adm No</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                        <input class="form-control" name="studentID" #studentID="ngModel" [(ngModel)]="formData.studentID">
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="form-group">
+                <label >Student Name</label>
+                
+                <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="formData.Name">      
+            </div>
+           
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label >Student</label>
+                <select name="CourseName" #CourseName="ngModel" [(ngModel)]="formData.CourseName" class="form-control" (change)="UpdatePay($event.target)">
+                    <option value="0">select</option>
+                    <option *ngFor="let stdnt of student" value="{{stdnt.studentID}}">{{stdnt.CourseName}}</option>
+                </select>
+                
+            </div>
+            <div class="form-group">
+                <label >Fees</label>
+                <input class="form-control" name="Fees" #Fees="ngModel" [(ngModel)]="formData.Fees">
+            </div>
+            <div class="form-group">
+                <label >Fee Paid</label>
+                <input class="form-control" name="FeesPaid" #FeesPaid="ngModel" [(ngModel)]="formData.FeesPaid" (keyup)="computeBal()">
+            </div>
+            <div class="form-group">
+                <label >Fee Balance</label>
+                <input class="form-control" name="FeeBal" #FeeBal="ngModel" [(ngModel)]="formData.FeeBal">
+            </div>
+        </div>
+      
+        <button class="form-group btn btn-dark" type="submit" >Submit</button>
+        <div class="form-group btn btn-outline-dark" type="button" [mat-dialog-close]>close</div>
+
+    </div>
+</form>

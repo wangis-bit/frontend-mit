@@ -1,0 +1,55 @@
+.normal-form{
+    margin:0px;
+}
+.controllers{
+    width:100%;
+    padding:2px;
+
+}
+.controllers > *{
+    width: 100%;
+    margin-top:5px
+}
+ul li{
+    list-style: none;
+    display: inline;
+    
+    
+    
+}
+li{
+    margin: 20px;
+}
+li a:hover{
+    
+    color: blue;
+    padding: 5px;
+    
+}
+
+/* .active{
+    background-color: orange;
+    color: blue;
+     font-weight:bolder;
+     font-size: 15px;
+     padding: 5px;
+     border-radius: 5px;
+     
+     
+ } */
+ #link1:hover{
+    
+    color: blue;
+     font-weight:bolder;
+     font-size: 15px;
+     padding: 5px;
+     
+ }
+ .active{
+   
+    color: maroon;
+     font-weight:bolder;
+     font-size: 15px;
+     padding: 5px;
+     
+ }

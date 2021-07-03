@@ -1,0 +1,113 @@
+<div class="card col-md-8 offset-md-2">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-outline-secondary btn-sm" routerLink="../">Back to Login Registration</button>
+            </div>
+            <div class="col-md-8">
+                <h1 style="color:green; font-weight: bolder;">New User Registration</h1>
+            </div>
+       
+           
+      
+        </div><hr>
+        <div *ngIf="ms" class="text-center">
+          <span [ngClass]="(status==1)?'text-success':'text-danger'">{{ms}}</span>
+        </div>
+          <form [formGroup]="director"  (ngSubmit)="insertDirector()" >
+              
+              <div class="row">
+                  <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Director Full_Names<code>*</code></mat-label>
+                    <input type="text" matInput  formControlName="names" [(ngModel)]="directorModel.names">
+                    <mat-error *ngIf="director.controls['names'].errors?.required">Please Enter Director's name</mat-error>
+                  </mat-form-field>
+                 
+              </div>
+              <div class="row">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Director login_ID<code>*</code></mat-label>
+                    <input type="text" matInput  formControlName="id" [(ngModel)]="directorModel.id" placeholder="starts with 6666x => 0>x<10">
+                        <mat-error *ngIf="director.controls['id'].errors?.required">Input Director's login_Id</mat-error>
+                        <mat-error *ngIf="director.controls['id'].errors?.minLength">Must be atleast 5 numbers</mat-error>    
+                </mat-form-field>
+                
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>account_type <code>*</code></mat-label>
+                      <mat-select type="text" matInput  formControlName="role_id" [(ngModel)]="directorModel.role_id">
+                         
+                          <mat-option value="3338"> Director's acount</mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="director.controls['id'].errors?.required">You must select account</mat-error>
+                    </mat-form-field>
+                    
+                </div>
+            
+             
+            
+                <div class="col-md-12 row" style="padding: 8px;">
+                    <div class="col-md-6 ">
+                        <button mat-raised-button class="btn btn-warning btn-sm" routerLink="../">cancel</button>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button  mat-raised-button class="btn btn-primary btn-sm" type="submit" [disabled]="!director.valid">Add Director</button>
+                    </div>
+                </div>
+              
+                  
+                  
+                 
+                 
+    
+                  
+            
+            
+              
+          </form>
+          
+      </div>
+      <hr>
+
+      <div class="text-center">
+          <h2 class="text-info">List of Registered Directors</h2>
+      </div>
+      <hr>
+      
+            <div class="text-right" style="width: 99%;margin-top: 20px;margin-bottom: 20px;">
+              <mat-form-field appearance="outline" style="width: 50%;" (keyup)="applySearch($event)">
+                <mat-label>Search </mat-label>
+                <input matInput placeholder="Type here to search" >
+              </mat-form-field>
+            </div>
+            
+            <div>
+              <table mat-table [dataSource]="StudentsAccountsInfo" matSort>
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Director_id</th>
+                  <td mat-cell *matCellDef="let row">{{row.id}}</td>
+                </ng-container>
+                <ng-container matColumnDef="names">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Director Full Names</th>
+                  <td mat-cell *matCellDef="let row">{{row.names}}</td>
+                </ng-container>
+               
+                <ng-container matColumnDef="operations">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+                  <td mat-cell *matCellDef="let row">
+                    <button class="btn btn-danger btn-sm mx-2" >Delete</button>
+                    <button class="btn btn-warning btn-sm"  >Edit</button>
+                  </td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="columns"></tr>
+                <tr mat-row *matRowDef="let row; columns:columns;"></tr>
+              </table>
+            </div>
+            <mat-paginator [length]="10000"  
+                            [pageSize]="3"
+                            [pageSizeOptions]="[1,3,9,12]">
+                         
+            </mat-paginator>
+</div>

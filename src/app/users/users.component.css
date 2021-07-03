@@ -1,0 +1,17 @@
+
+ mat-drawer-container{
+    height: 100%;
+    
+ 
+ }
+ mat-drawer{
+    height: 100%;
+    width: 300px;
+    background-color: rgb(250, 173, 57);
+ }
+ mat-drawer, mat-drawer-content{
+    padding: 12px;
+ }
+
+ 
+ 

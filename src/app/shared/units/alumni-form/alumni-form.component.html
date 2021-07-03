@@ -1,0 +1,62 @@
+<div class="card">
+    <center>
+      <h1><b>Student's Schools Fees Management Information System</b></h1>
+      <h3><b>Student's fee Details form</b></h3>
+      
+    </center>
+    
+    
+      <div class="col-md-12" style="background-color: rgb(238, 232, 144);border-radius:10px;">
+      <form action="" [formGroup]="serve.details" class="normal-form" (ngSubmit)="becomeAlumni()">
+        
+             <div class="col-md-12 row" style="width: 100%">
+               <div class="col-md-12 text-center" style="padding: 10px;">
+                 <h3>Student's Basic_details</h3>
+               </div>
+               
+                
+                  <mat-form-field appearance="outline" style="width: 100%;" >
+                    <mat-label>Student's Admission Number</mat-label>
+                    <input type="text" matInput formControlName="AdmNumber" [(ngModel)]="acm.AdmNumber" readonly  >
+                  </mat-form-field>
+                 
+                
+              
+              <mat-form-field appearance="outline" style="width: 100%;" >
+                <mat-label>Student's Full Names</mat-label>
+                <input type="text" matInput formControlName="names" [(ngModel)]="acm.names" readonly  >
+              </mat-form-field> 
+             
+              <mat-form-field appearance="outline" style="width: 100%;" >
+                <mat-label>Gender</mat-label>
+                <input type="text" matInput formControlName="gender" [(ngModel)]="acm.gender" readonly  >
+              </mat-form-field>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" style="width: 100%;" >
+                    <mat-label>Date Enrolled</mat-label>
+                    <input type="date" matInput formControlName="enrolyr" [(ngModel)]="acm.enrolyr" >
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" style="width: 100%;" >
+                    <mat-label>Date Completed</mat-label>
+                    <input type="date" matInput formControlName="complettionYear" [(ngModel)]="acm.complettionYear"   >
+                  </mat-form-field>
+                </div>
+              </div> 
+             </div>
+           
+           <div class=" col-md-12 row" style="margin: 10px;">
+            <div class="col-md-6">
+              <button class="btn btn-sm btn-outline-dark" routerLink="../../" >Clear Another Student</button>
+            </div>
+            <div class="col-md-6 text-right">
+              <button class="btn btn-sm btn-outline-success" (click)="prinfFormValue()" type="submit">Confirm Clearance</button>
+            </div>
+              
+              
+           </div>
+          </form>
+           </div>

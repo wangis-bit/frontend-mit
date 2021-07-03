@@ -1,0 +1,42 @@
+
+<mat-nav-list>
+  <div class="col-md-12">
+      <button style="width: 100%;" *ngIf="tutor" value="{{tutor.id}}"  mat-raised-button (click)="detailsPage(tutor)" ><mat-icon>paid</mat-icon>View fees balances for students</button>
+  </div>
+    <br>
+    
+    <mat-divider></mat-divider><br>
+    
+    <div class="col-md-12">
+        <button  style="width: 100%;" mat-raised-button ><mat-icon style="margin-right: 10px;">backup</mat-icon>MIT E-library</button>
+    </div>
+      <br>
+      
+      <mat-divider></mat-divider><br>
+      <div class="col-md-12">
+        <button style="width: 100%;" mat-raised-button ><mat-icon>toc</mat-icon> Students in the department</button>
+    </div>
+      <br>
+      
+     
+      
+      <mat-divider></mat-divider><br>
+      <div class="col-md-12">
+        <button style="width: 100%;" mat-raised-button > <mat-icon>subject</mat-icon>View department courses</button>
+    </div>
+      <br>
+      
+      <mat-divider></mat-divider><br>
+      <div class="col-md-12">
+        <button style="width: 100%;" mat-raised-button ><mat-icon>send_to_mobile</mat-icon><a routerLinkActive="active" class="link" [routerLink]="'../../users'" class="ln"   mat-nav-list-item>Sign_Out</a></button>
+    </div>
+      <br>
+      
+      <mat-divider></mat-divider><br>
+
+</mat-nav-list>
+
+
+  
+
+

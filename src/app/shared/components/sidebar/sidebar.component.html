@@ -1,0 +1,179 @@
+
+<mat-nav-list>
+    <button mat-icon-button style="padding-top: 5px;">
+        
+        <a routerLinkActive="active" class="link" [routerLink]="''" class="ln"  style="font-size: 20px;" mat-nav-list-item ><mat-icon class="mx-2" >home</mat-icon>Dashboard</a>
+    </button>
+    <br>
+    
+    <mat-divider></mat-divider>
+    
+    <div class="profile-card">
+        <h2>The Admin Control Panel</h2>
+        
+            <img src="../../../../assets/EDU.jpg" alt="">
+            <h3>E-mail: angularlaravelmysql@developer.com</h3>
+    
+    </div>
+    
+    <mat-divider></mat-divider>
+    <div class="row col-md-12">
+        <div class="col-md-2"> <button matSubheader mat-icon-button>
+            <mat-icon>supervisor_account</mat-icon>
+        </button>
+        </div>
+        <div class="col-md-10">
+            <h2 matSubheader style="font-size: 16px;">Manage Fees</h2>
+        </div>
+    </div>
+    
+    <mat-divider></mat-divider>
+    <button mat-icon-button>
+        <mat-icon>person_add_alt</mat-icon>
+        <a routerLinkActive="active" class="link" [routerLink]="'registration'" class="ln"   mat-nav-list-item>Student System Reg</a>
+    </button>
+    <br>
+    <p>
+        <button mat-icon-button>
+           
+            <button type="button" class="btn  btn1" (click)="collapse.toggle()" (click)="toggle()" [attr.aria-expanded]="!isCollapsed"
+          aria-controls="collapseExample" [class.expanded]="expanded">
+          <span></span><span></span><a routerLinkActive="active" class="link" [routerLink]="'departments'" class="ln" mat-nav-list-item > <mat-icon>book_online</mat-icon>Departments</a>
+        </button>
+        </button>
+        
+      </p>
+      <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+        <div class=" list-group" >
+            <div class="col-md-12 row ">
+                <div class="col-md-2 ">
+                    <button mat-icon-button>
+                        <mat-icon>payment</mat-icon>
+                    </button>
+                </div>
+                <div class="col-md-10 ">
+                    <a routerLinkActive="active" class="link" [routerLink]="'departments/ict'" class="ln1 list-group-item list-group-item-action list-group2" mat-nav-list-item >ICT Department</a>
+                </div>
+                <div class="col-md-2">
+                    <button mat-icon-button>
+                        <mat-icon>payment</mat-icon>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <a routerLinkActive="active" class="link" [routerLink]="'departments/social'" class="ln1 list-group-item list-group-item-action list-group2" mat-nav-list-item >Social_wrk Dept</a>
+                </div>
+                <div class="col-md-2">
+                    <button mat-icon-button>
+                        <mat-icon>payment</mat-icon>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <a routerLinkActive="active" class="link" [routerLink]="'departments/engineering'" class="ln1 list-group-item list-group-item-action list-group2" mat-nav-list-item >Engineering Dept</a>
+                </div>
+                <div class="col-md-2">
+                    <button mat-icon-button>
+                        <mat-icon>payment</mat-icon>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <a routerLinkActive="active" class="link" [routerLink]="'departments/beauty'" class="ln1 list-group-item list-group-item-action list-group2" mat-nav-list-item >Beauty Department</a>
+                </div>
+                <div class="col-md-2">
+                    <button mat-icon-button>
+                        <mat-icon>payment</mat-icon>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <a routerLinkActive="active" class="link" [routerLink]="'departments/business'" class="ln1 list-group-item list-group-item-action list-group2" mat-nav-list-item >Business Department</a>
+                </div>
+                <div class="col-md-2">
+                    <button mat-icon-button>
+                        <mat-icon>payment</mat-icon>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <a routerLinkActive="active" class="link" [routerLink]="'departments/fashion'" class="ln1 list-group-item list-group-item-action list-group2" mat-nav-list-item >Fashion Department</a>
+                </div>
+                <div class="col-md-2">
+                    <button mat-icon-button>
+                        <mat-icon>payment</mat-icon>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <a routerLinkActive="active" class="link" [routerLink]="'departments/nutrition'" class="ln1 list-group-item list-group-item-action list-group2" mat-nav-list-item >Nutrition Department</a>
+                </div>
+                <div class="col-md-2">
+                    <button mat-icon-button>
+                        <mat-icon>payment</mat-icon>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <a routerLinkActive="active" class="link" [routerLink]="'departments/hospitality'" class="ln1 list-group-item list-group-item-action list-group2" mat-nav-list-item >Hospitality Dept</a>
+                </div>
+            </div>
+            
+        </div>
+      </div>
+      <button mat-icon-button>
+        <mat-icon>supervised_user_circle</mat-icon>
+        <a routerLinkActive="active" class="link" [routerLink]="'deputy'" class="ln"   mat-nav-list-item>Deputy_Principal</a>
+    </button>
+    <br>
+    <button mat-icon-button>
+        <mat-icon>card_travel</mat-icon>
+        <a routerLinkActive="active" class="link" [routerLink]="'accounts'" class="ln"   mat-nav-list-item>Accounts_Info</a>
+    </button>
+    <br>
+    <button mat-icon-button>
+        <mat-icon>manage_accounts</mat-icon>
+        <a routerLinkActive="active" class="link" [routerLink]="'units'" class="ln"   mat-nav-list-item>Manage Students</a>
+    </button>
+    <br><br>
+    <mat-divider></mat-divider>
+    <div class="row col-md-12">
+        <div class="col-md-2"> <button matSubheader mat-icon-button>
+            <mat-icon>rule</mat-icon>
+        </button>
+        </div>
+        <div class="col-md-10">
+            <h2 matSubheader style="font-size: 16px;">Fee Reports</h2>
+        </div>
+    </div>
+    <mat-divider></mat-divider><br>
+    <button mat-icon-button>
+        <mat-icon>cancel</mat-icon>
+    
+   
+    </button>
+    <a routerLinkActive="active" class="link" [routerLink]="'bal'" class="ln"   mat-nav-list-item>View Balances</a><br>
+
+    <button mat-icon-button>
+        <mat-icon>list_alt</mat-icon>
+    </button>
+    <a routerLinkActive="active" class="link" [routerLink]="'reports'" class="ln"   mat-nav-list-item>payment Reports</a><br>
+    <br><br>
+    <mat-divider></mat-divider>
+    <div class="row col-md-12">
+        <div class="col-md-2"> <button matSubheader mat-icon-button>
+            <mat-icon>link</mat-icon>
+        </button>
+        </div>
+        <div class="col-md-10">
+            <h2 matSubheader style="font-size: 16px;">Important Links</h2>
+        </div>
+    </div>
+    <mat-divider></mat-divider><br>
+    <button mat-icon-button>
+        <mat-icon>stacked_bar_chart</mat-icon>
+    </button>
+    <a routerLinkActive="active" class="link" [routerLink]="'plans'" class="ln"   mat-nav-list-item>payment Plans</a><br>
+
+    <button mat-icon-button (click)="logoutUser()">
+        <mat-icon>send_to_mobile</mat-icon>
+        <a routerLinkActive="active" class="link" class="ln"   mat-nav-list-item>Sign_Out</a>
+    </button>
+    <br>
+</mat-nav-list>
+
+
+  

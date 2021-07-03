@@ -1,0 +1,10 @@
+<app-hodhead (toggleSideBarForMe)="sideToggler()"></app-hodhead>
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-hodsidebar></app-hodsidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+<app-footer></app-footer>

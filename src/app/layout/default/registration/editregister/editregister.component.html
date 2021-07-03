@@ -1,0 +1,87 @@
+
+<div class="card col-md-12" style="margin: auto;">
+    <center>
+      <h2 class="text-primary" style="font-size: 30px;">Fee Management Information System-MIT</h2>
+       <cite style="color:blue">Student's System Editing point</cite>
+       <div class=" col-md-12" style="padding: 8px;">
+        <h1>Students's Details Editing Form</h1>
+      </div>
+    </center>
+      <mat-divider></mat-divider>
+      <form [formGroup]="students.details" class="normal-form" (ngSubmit)="updateRegDetails()">
+        <div class="col-md-12 row">
+          <div class="col-md-12">
+            <h3 class="text-center"><b> Student's Essential Details</b> </h3>
+          </div>
+          <div class="col-md-4" style="width: 100%;">
+            <label for="">Student Names</label>
+            <mat-form-field appearance="outline"  style="width: 100%;">
+              <mat-label>Student's Full_Names</mat-label>
+              <input type="text" matInput
+             placeholder="Enter Name" formControlName="names" [(ngModel)]="reg.names" >
+            </mat-form-field>
+          </div>
+          <div class="col-md-4" style="width: 100%;">
+            <label for="">Student Admission Number</label>
+            <mat-form-field appearance="outline" style="width: 100%;">
+              <mat-label>Student's Adm No</mat-label>
+              <input type="text" formControlName="AdmNumber" matInput formControlName="student_id" [(ngModel)]="reg.student_id" 
+              [(ngModel)]="reg.AdmNumber" >
+            </mat-form-field>
+          </div>
+          <div class="col-md-4" style="width: 100%;">
+            <label for="">Student's Gender'</label><br><br>
+            
+            <ng-container >
+              <mat-label style="margin-right:8px" ><input class="mx-1" type="radio" formControlName="gender" value="Male" [(ngModel)]="reg.gender" >Male</mat-label>
+              <mat-label><input class="mx-1" type="radio" formControlName="gender" value="Female" [(ngModel)]="reg.gender" >Female</mat-label>
+            </ng-container>
+            
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="col-md-12 row" style="margin-top: 20px;">
+          <div class="col-md-12 text-center">
+            <h3 ><b>Course Enrolment Details</b>  </h3>
+          </div>
+          
+            <div class="col-md-6">
+              <mat-form-field style="width: 100%;" >
+              <mat-label>Completion Date/Year</mat-label>
+             <input type="date" matInput name="" id=""  formControlName="complettionYear"  [(ngModel)]="reg.complettionYear">
+              
+             </mat-form-field>
+            
+            </div>
+            <div class="col-md-6">
+              <mat-form-field style="width: 100%;" >
+              <mat-label>Enrolled Year</mat-label>
+             <input type="date" matInput name="" id=""  formControlName="enrolyr"  [(ngModel)]="reg.enrolyr">
+              
+             </mat-form-field>
+            
+            </div>
+           
+           
+            <mat-divider></mat-divider>
+          </div>
+          <div class="col-md-12  row " style="margin: 10px;" >
+              <div class="col-md-6 ">
+                <button mat-raised-button color="primary" class="mx-2" type="submit">Update</button>
+              </div>
+              <div class="col-md-6 text-right">
+                
+                <button mat-raised-button color="accent" routerLink="../../">Back To Registered List</button>
+              </div>  
+          </div>
+        </form>
+
+        <div class="col-md-12 row">
+          <!-- //Codes for department and courses wil go here -->
+        </div>
+    
+  </div>
+    
+     
+      <router-outlet></router-outlet>
+  

@@ -1,0 +1,137 @@
+
+<div class="container card">
+    <div class="card-title" style="padding: 10px;">
+        <h2 class="text-center text-primary" style="font-size: 40px">Machakos Institute of Technology</h2>
+        <p class="text-warning text-center"><i> <b>Master The Training and Experience the results</b></i></p>
+    </div>
+    <div class="card-body">
+        <div class="card txt" style="padding-top: 10px;">
+            <h1  style="text-align: center;" class="text-success t "><b>Fees Mnagement Information System - MIT Special App</b> </h1>
+        </div><hr>
+        <legend class="text-right">Summary Details on Fees Payment</legend> <hr>
+        <div class="col-md-12 row ">
+          <div class="col-md-12 row" style="margin-bottom: 10px;">
+            <div class="col-md-5 card" >
+                
+                <!-- Depatmental Proporptions.. -->
+                <div >
+                    <cite class="text-success " style="text-align: center;"><b>Overal Departmental Proportional Balances</b></cite>
+                    <blockquote class="text-center text-primary">Fee Bal Proprtions for Departments</blockquote>
+                    <div style="display: block;">
+                        <canvas baseChart 
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType">
+                      </canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Enromnet div -->
+            <div class="col-md-5 card">
+                <cite class="text-primary " style="text-align: center;"><b>Quick Show on rate of new enrolments</b> <span><b>{{dt|date}}</b></span></cite>
+               
+               <div style="display: block;">
+                <canvas baseChart 
+                  [data]="pieChartData" 
+                  [labels]="pieChartLabels" 
+                  [chartType]="pieChartType"
+                  [options]="pieChartOptions"
+                  [plugins]="pieChartPlugins"
+                  [legend]="pieChartLegend">
+                </canvas>
+              </div>
+            </div>
+            <div class="col-md-2 card ani text-left">
+               <h4 class="text-info text-center">Important Quick Link section</h4>
+               <ul style="list-style:none ;">
+                  
+                   <li><a href="">Not allowed in class</a></li>
+                   <li><a href="">Aggregate fee bal</a></li>
+                   <li><a href="">Latset Enrolments</a></li>
+               </ul>
+              </div>
+            
+          </div>  <hr>
+            
+           
+            <div class="col-md-12 row" style="margin-top: 10px;">
+                    <!-- Peyment Ranking -->
+            <div class="card col-md-6">
+                <h1 class="text-center text-primary">Ranking of Departments Based on Fee Payment turnouts</h1>
+                <div style="display: block">
+                    <canvas baseChart
+                        [chartType]="pieChartType"
+                        [datasets]="chartDatasets"
+                        [labels]="chartLabels"
+                        [colors]="chartColors"
+                        [options]="chartOptions"
+                        [legend]="true"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)">
+                    </canvas>
+                  </div>
+            </div>
+
+            <!-- comments on the ranking -->
+           
+
+            <!-- Bar Chart -->
+            <div class="card col-md-6">
+                <ins class="text-center"><b>Daily Fee Payment Rate as per the department</b></ins>
+                <p class="text-right">Date: {{dt|date}}</p>
+                <div style="display: block;">
+                    <canvas baseChart 
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [plugins]="barChartPlugins"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType">
+                    </canvas>
+                  </div>
+            </div>
+            </div> 
+
+            
+
+        </div><br><hr><br>
+        <div class="card col-md-12">
+            <h1 class="text-center">Explore the fee payment comment section</h1>
+            <p class="text-center">Fee Collection status comments</p>            
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th>Department</th>
+                  <th>Score rating</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ictn</td>
+                  <td>76%</td>
+                  <td>Doing well</td>
+                </tr>
+                <tr>
+                  <td>Beauty</td>
+                  <td>20%</td>
+                  <td>Fee colletion poor</td>
+                </tr>
+                <tr>
+                  <td>Engiieering</td>
+                  <td>54%</td>
+                  <td>Collection at Average</td>
+                </tr>
+              </tbody>
+            </table>
+        </div><br><hr>
+        <div class="container-fluid text-center" style="background-color: gray;color:white;padding: 10px;border-radius: 2px;"> 
+            <h2 style="font-size: 30px;">Machakos Institute of Technology</h2>
+            <p style="font-size: 30px;">School Fees Management Information System</p><hr>
+            <p><i>Adminstrator Control Panel @ MIT</i></p>
+        </div>
+    </div>
+   
+</div>

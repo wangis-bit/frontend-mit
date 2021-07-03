@@ -1,0 +1,135 @@
+<h4 class="display-2">Receive Fee Payment</h4><hr>
+
+
+    
+    
+    <div class="row col-md-12 ">
+    <div class="col-md-12 text-center">
+      <h4 class="Display-1">Student Details</h4>
+      <hr>
+      <div class="text-center">
+        <span [ngClass]="(status==1)?'text-success':'text-danger'">{{message}}</span>
+      </div>
+    </div>
+        <div class="col-md-12 row">
+           <div class="col-md 6">
+            <div class="form-group">
+              <label >Student's Name.</label>
+              <select class="form-control" name="names" #names="ngModel" [(ngModel)]="formData.names" (change)="UpdatePay($event.target)">
+                <option value="0">select</option>
+                <option *ngFor="let n of nm" value="{{n.names}}" >{{n.names}}</option>
+                </select>   
+            </div>
+            <div class="form-group">
+              <label >Gender</label>
+              <input class="form-control" name="gender" #gender="ngModel" [(ngModel)]="formData.gender">      
+          </div>
+          <div class="form-group">
+            <label >Student's Department</label>
+            <input class="form-control" name="dept" #dept="ngModel" [(ngModel)]="formData.dept">      
+          </div>
+          <div class="form-group">
+            <label >Student's Course</label>
+            <input class="form-control" name="course" #course="ngModel" [(ngModel)]="formData.course">      
+          </div>
+          <div class="form-group">
+            <label >Level of study</label>
+            <input class="form-control" name="course_level"  #course_level="ngModel" [(ngModel)]="formData.course_level">
+          </div>
+          </div>
+
+
+
+
+
+           <div class="col-md 6">
+             <form (ngSubmit)="postStudent()" #form="ngForm">
+              <input type="hidden"  name="student_id" #student_id="ngModel" [(ngModel)]="AccountsData.student_id">
+              <input type="hidden"  name="oldBal" #oldBal="ngModel" [(ngModel)]="AccountsData.oldBal">
+              <input type="hidden"  name="RenewalDate" #RenewalDate="ngModel" [(ngModel)]="AccountsData.RenewalDate">
+              <input type="hidden"  name="session" #session="ngModel" [(ngModel)]="AccountsData.session">
+              <input type="hidden"  name="AdmNumber" #AdmNumber="ngModel" [(ngModel)]="AccountsData.AdmNumber">
+              <input type="hidden"  name="course_level_id" #course_level_id="ngModel" [(ngModel)]="AccountsData.course_level_id">
+              <input type="hidden"  name="AmountPaid" #AmountPaid="ngModel" [(ngModel)]="AccountsData.AmountPaid">
+              <input type="hidden"  name="NewBal" #NewBal="ngModel" [(ngModel)]="AccountsData.NewBal">
+              
+              <input type="hidden"  name="pdate" #pdate="ngModel" [(ngModel)]="AccountsData.pdate">
+              <div class="form-group" >
+                <label >Student's Adm No.</label>
+                <select class="form-control" name="student_id" name="AdmNumber" #AdmNumber="ngModel" #student_id="ngModel" [(ngModel)]="AccountsData.student_id" [(ngModel)]="AccountsData.AdmNumber" (change)="UpdatePay($event.target)">
+                  <option value="">select</option>
+                  <option *ngFor="let n of nm" value="{{n.student_id}}" >{{n.student_id}}</option>
+                  </select>   
+              </div>
+              <div class="form-group">
+                <label >Semester Session</label>
+                  <select type="text" class="form-control" name="session" #session="ngModel" [(ngModel)]="AccountsData.session">
+                    <option value="">Choose semester</option>
+                    <option *ngFor="let session of Semester" value="{{session}}" >{{session}}</option>
+                    </select>
+               </div>
+               <div class="row">
+                 <div class="col-md-6">
+                  <div class="form-group">
+                    <label >Payment Date</label>
+                    <input type="date" class="form-control" name="pdate" #pdate="ngModel" [(ngModel)]="AccountsData.pdate">
+                  </div>
+                 </div>
+                 <div class="col-md-6">
+                  <div class="form-group">
+                    <label >Renewal Date</label>
+                      <input type="date" class="form-control" name="RenewalDate" #RenewalDate="ngModel" [(ngModel)]="AccountsData.RenewalDate">
+                  </div>
+                </div>
+               </div>
+             <div class="row">
+              
+              <div class="col-md-6 form-group">
+                <label >Outstanding Balance</label>
+                <input class="form-control" name="oldBal" #oldBal="ngModel" [(ngModel)]="AccountsData.oldBal" (keyup)="computeBal()">
+              </div>
+                   
+                  
+               <div class="col-md-6 form-group">
+               
+                  <label >Amount Paid</label>
+                  
+                      <input class="form-control" name="AmountPaid" #AmountPaid="ngModel" [(ngModel)]="AccountsData.AmountPaid" (keyup)="computeBal()">
+                   
+             
+              </div>
+             </div>
+            
+            
+          <div class="form-group" style="width: 100%;">
+            <label >New Balance</label>
+            
+                <input class="form-control" name="NewBal" #NewBal="ngModel" [(ngModel)]="AccountsData.NewBal">
+              
+          </div>
+          <div class="col-md-12 row">
+        
+            <div class="col-md-6">
+             <button class="form-group btn btn-outline-warning" type="button" [mat-dialog-close]>close</button>
+            </div>
+            <div class="col-md-6 text-right">
+             <button class="form-group btn btn-outline-success" type="submit" (click)="printForm()" >Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>  
+               
+            </div>
+            
+              
+            
+              
+                  
+      
+        
+      </div>  
+     
+
+
+
+

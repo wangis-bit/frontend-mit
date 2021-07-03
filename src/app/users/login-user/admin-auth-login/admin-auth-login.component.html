@@ -1,0 +1,84 @@
+<div class="container col-md-12 row">
+
+
+    <div class="card card col-md-4 offset-md-4" style="border-radius: 5px;background-color: lightblue;">
+        <div class="row">
+            <div style="background-color:blue;padding: 5px;" class="col-md-12">
+                <h1 class="text-center" style="font-weight:bolder;font-size:30px;color: white;">Machakos Institute of Technology</h1>
+            </div><br><hr>
+           
+            <div class="col-md-12 text-center" style="padding-top: 10px;padding-bottom: 5px;">
+                <img src="assets/mit.png" alt="">
+            </div><br><hr>
+            <div class="col-md-12">
+                <h1 class="text-muted" style="text-align:center;color:green; font-weight: bolder;">Admin Authentication Page</h1>
+            </div>
+           
+            
+        </div>
+        <div class="card-body">
+         <div class=" text-center">
+            <span class="text-danger text-center" *ngIf="(status==0)">{{message}}</span>
+         </div>
+            <form action="" [formGroup]="users" (submit)="loginUser()">
+              <mat-form-field style="width: 100%;">
+                    <mat-label>Admin E-mail Address</mat-label>
+                    <input type="text" matInput formControlName="email" [(ngModel)]="user.email">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>passord</mat-label>
+                    <input type="password" matInput formControlName="password" [(ngModel)]="user.password">
+                </mat-form-field>
+                <div>
+                    <div class="col-md-12 row">
+                       
+                        <div class="col-md-6 text-right">
+                            <button mat-raised-button class="btn btn-primary btn-sm" type="submit"  ><span>Authenticate</span></button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </form>
+        </div>
+       <div class="row col-md-12">
+        
+           <div class="col-md-6 text-center"><hr>
+               <img src="assets/production-logo.jpg" alt="">
+               <h6><b><i>Wangi's computer softwatare solutions</i></b></h6>
+               <hr><br>
+           </div>
+           <div class="col-md-6 text-center">
+            <hr><br>
+           <h2><b>Forgot Your Password?</b></h2>
+           <a href="">Reset Password here</a>
+           <br><br><hr>
+        </div>
+           
+           
+       </div>
+        
+       
+       <div class="row" >
+           <div class="col-md-12 text-center">
+            <h2 class="text-center"><b>"Master the training and experience the results"</b></h2>
+           </div>
+       
+            <div class="col-md-6 text-center" style="background-color: orange;width: 100%;padding:10px">
+                        
+                <div class="col-md-6 ">
+                    <button mat-raised-button routerLink="../" class="btn btn-secondary btn-sm">cancel</button>
+                </div>
+            </div>  
+            <div class="col-md-6 text-right"style="background-color: orange;width: 100%; padding:10px">
+                <button mat-raised-button routerLink="../registerUser" class="btn btn-primary btn-sm">I am normal user</button>
+                <!-- <button style="margin-top: 10px;"  routerLink="./registerUser" mat-raised-button class="btn btn-success">
+                    <mat-icon >how_to_reg</mat-icon>
+                    <span>Register New User here</span>
+                </button>  -->
+            </div>
+            
+    </div>
+    </div>
+    
+    </div>

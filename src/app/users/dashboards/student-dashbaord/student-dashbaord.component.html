@@ -1,0 +1,10 @@
+<app-student-header (toggleSideBarForMe)="sideToggler()"></app-student-header>
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-student-sidebar></app-student-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+<app-footer></app-footer>

@@ -1,0 +1,88 @@
+<div class="container col-md-12 row">
+
+
+<div class="card card col-md-4 offset-md-4" style="border-radius: 5px;background-color: lightblue;">
+    <div class="row">
+        <div style="background-color:rgb(252, 155, 29);padding: 2px;" class="col-md-12"></div>
+        <div style="background-color:blue;padding: 5px;" class="col-md-12">
+            <h1 class="text-center" style="font-weight:bolder;font-size:30px;color: white;">Machakos Institute of Technology</h1>
+            <div class="col-md-12 text-center" >
+                <img src="assets/mit.png" alt="">
+            </div>
+            <div class="col-md-12">
+                <h1 style="text-align:center;color:white; font-weight: bolder;font-size: 15px;">MIT Fees Management Information System <br>Login</h1>
+            </div>
+            
+        </div>
+        <div style="background-color:rgb(252, 155, 29);padding: 2px;" class="col-md-12"></div>
+        
+       
+       
+        
+       
+        
+    </div>
+    <div class="card-body">
+     <div class=" text-center">
+        <span class="text-danger text-center" *ngIf="(status==0)">{{message}}</span>
+     </div>
+        <form action="" [formGroup]="users" (submit)="loginUser()">
+          <mat-form-field style="width: 100%;">
+                <mat-label>User Email</mat-label>
+                <input type="text" matInput formControlName="email" [(ngModel)]="user.email">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>passord</mat-label>
+                <input type="password" matInput formControlName="password" [(ngModel)]="user.password">
+            </mat-form-field>
+            <div>
+                <div class="col-md-12 row">   
+                    <div class="col-md-6 offset-md-6 text-right">
+                        <button mat-raised-button class="btn btn-primary btn-sm" type="submit"  >login</button>
+                    </div>
+                </div>   
+            </div>
+            
+        </form>
+    </div>
+   <div class="row col-md-12">
+    <div class="col-md-6 text-center">
+        <hr><br>
+        <h2 ><b><i>Are you an Admistrator?</i></b></h2>
+        <a  routerLink="./admin-auth-login" > 
+        <span>Register Other Users here</span>
+        </a>
+       <br><br><hr>
+    </div>
+      
+       <div class="col-md-6 text-center">
+        <hr><br>
+       <h2><b>Forgot Your Password?</b></h2>
+       <a href="">Reset Password here</a>
+       <br><br><hr>
+    </div>
+       
+    
+   </div>
+
+  
+<div class="row" style="background-color: blue;" >
+    <div class="col-md-6 text-center"><hr>
+        <img src="assets/production-logo.jpg" alt="">
+        <h6 style="color: white;"><b><i>Wangi's computer softwatare solutions <br><span><i>"Making it happen"</i></span></i></b></h6>
+        <hr>
+    </div>
+    <div class="col-md-6 text-center"><hr>
+        <img src="assets/production-logo.jpg" alt="">
+        <h6 style="color: white;"><b><i>Wangi's computer softwatare solutions <br><span><i>"Making it happen"</i></span></i></b></h6>
+        <hr>
+    </div>
+    <div class="col-md-12 text-center">
+        <h1  style="color: white;font-size: 15px;"><b><i>"Master the Training and experience the results"</i></b></h1>   
+    </div>
+  
+</div>
+
+</div>
+
+</div>

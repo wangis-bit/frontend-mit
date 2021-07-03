@@ -1,0 +1,83 @@
+<div class="col-md-12 row">
+    <div class="text-right col-md-12">
+      <h1 style="font-size: 20px;color:blue;"><b>Department of Social Work</b></h1>
+      <h6 style="font-size: 15px;color:orange;"><i><b>Department's Fee Management system</b></i></h6>
+    </div>
+   
+    <div class="col-md-3 row" style="margin: 2px;"> 
+      <span>Activate Department Name</span> <select [(ngModel)]="acm.student_id" name="student_id" class="form-control" (change)="getCourse($event)" >
+        <option  value="7">Social Work Department</option>
+        <!-- <option *ngFor="let t of allDepartments" value="{{t.dept_id}}">{{t.dept}}</option> -->
+      </select>
+    </div>
+    <div class="col-md-4 row"> 
+      <span>Course</span> <select [(ngModel)]="acm.course" name="course" class="form-control" (change)="getCourseLevels($event)"  >
+        <option value="">Select course</option>
+        <option *ngFor="let other of otherDetails" value="{{other.course_id}}">{{other.course}}</option>
+      </select>
+    </div>
+    <div class="col-md-5 row" > 
+        <span>Course level</span> <select  class="form-control"  (change)="getStudents($event)" style="margin-left:10px" >
+          <option value="">Selct Course level</option>
+          <option *ngFor="let other of otherDetails1" value="{{other.course_level_id}}">{{other.course_level}}</option>
+        </select>
+      </div>
+  </div>
+  <div  style="width: 99%;margin-top: 20px;margin-bottom: 20px;">
+    <mat-form-field appearance="outline" style="width: 25%;" (keyup)="applySearch($event)">
+      <mat-label>Search </mat-label>
+      <input matInput placeholder="Type here to search" >
+    </mat-form-field>
+  </div>
+  <div class="col-md-12">
+  
+    
+      <table mat-table [dataSource]="StudentsAccountsInfo" matSort>
+        <ng-container matColumnDef="student_id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Admision Number</th>
+          <td mat-cell *matCellDef="let row">{{row.student_id}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef="RenewalDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Next Payment expected On</th>
+          <td mat-cell *matCellDef="let row">{{row.RenewalDate | date:'mediumDate'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Bal">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Outstanding Balance</th>
+          <td mat-cell *matCellDef="let row">KES. {{row.Bal}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef="session">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Semester Session</th>
+          <td mat-cell *matCellDef="let row">{{row.session}}</td>
+        </ng-container>
+        <ng-container matColumnDef="pdate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Days For Being in Class</th>
+          <td mat-cell *matCellDef="let row">{{calCulateDays(row)}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef="operations">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+          <td mat-cell *matCellDef="let row">
+            <button class="btn btn-primary btn-sm mx-2">Remind student to pay</button>
+            
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns:columns;"></tr>
+      </table>
+    
+    <mat-paginator [length]="10000"  
+                    [pageSize]="3"
+                    [pageSizeOptions]="[1,3,9,12]">
+                 
+    </mat-paginator>
+  
+  <p>{{val}}</p>
+</div>
+
+        
+
+
+

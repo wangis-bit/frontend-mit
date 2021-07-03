@@ -1,0 +1,60 @@
+<div class="card col-md-12" style="margin: auto;">
+  
+  
+  
+    <center>
+     
+       <cite style="color:blue">Student Activation Form</cite>
+       <div class=" col-md-12" style="padding: 8px;">
+        <h1>Student Activation details: Name:<b><u>{{activate.names}}</u></b> ; Adm No. <u><i>{{activate.student_id }}</i></u></h1>
+      </div>
+    </center>
+    <div class="col-md-12 row" style="padding: 5px;">
+      <div class="col-md-6">
+                
+        <button mat-raised-button color="accent" routerLink="../../">Clear students</button>
+      </div>
+      <div class="col-md-6 text-right">
+        <button mat-raised-button class="btn btn-sm btn-success" routerLink="../../activateStudent">Activate Another Student</button>
+      </div> 
+       
+    </div>
+      <mat-divider></mat-divider>
+<div class="row">
+    <div class="col-md-12" style="background-color: lightblue;" >
+      <center>
+        <h4>Activate Student</h4>
+      </center>
+      <hr>
+      
+      <form [formGroup]="students.details" class="normal-form"   (ngSubmit)="InsertActivatedStudent()" (ngSubmit)="postRegDetails()" >
+        <div class="row" style="padding: 10px;">
+          <div class="col-md-6 text-center "  >
+              
+            <button mat-raised-button  class=" btn-sm mx-2 btn-info" type="submit " (click)="getData()">Make <b><u>{{activate.names}} </u></b>Active</button>
+          
+          
+      </div>
+      <div class="col-md-6  text-center "  >
+        
+          <button class="btn btn-warning btn-sm" mat-raised-button routerLink="../../ActivatedStudents">Activate fee Payment Status for Student</button>
+        
+      
+      
+  </div>
+        </div>
+       
+        </form>
+        
+    </div>
+
+    
+  </div>
+</div>
+
+
+    
+     
+      <router-outlet></router-outlet>
+  
+

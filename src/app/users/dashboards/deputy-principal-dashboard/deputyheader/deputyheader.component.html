@@ -1,0 +1,42 @@
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        
+        <button mat-icon-button (click)="toggleSidebar()"  matTooltip="Hide/Unhide Sidebar">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span><img src="../../../../assets/mit.png" alt=""></span>
+        <span>Machakos Institute of Technology - Fee Management App</span>
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row"fxLayoutGap="20px" class="list-unstyled">
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon>help_outline</mat-icon>
+                    </button>
+                </li>
+                <li>
+
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <mat-icon>person_outline</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" class="text-center">
+                        <button  routerLink="users" mat-raised-button class="btn btn-info">
+                            <mat-icon >people</mat-icon>
+                            <span>Users</span>
+                        </button>
+                            <br> <hr>
+                       <mat-icon>exit_to_app</mat-icon>
+                            Logout
+                            
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+

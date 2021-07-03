@@ -1,0 +1,58 @@
+<div  style="width: 99%;margin-top: 20px;margin-bottom: 20px;">
+    <mat-form-field appearance="outline" style="width: 25%;" (keyup)="applySearch($event)">
+      <mat-label>Search </mat-label>
+      <input matInput placeholder="Type here to search" >
+    </mat-form-field>
+  </div>
+  <div class="col-md-12">
+  
+    
+      <table mat-table [dataSource]="StudentsAccountsInfo" matSort>
+        <ng-container matColumnDef="AdmNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Admision Number</th>
+          <td mat-cell *matCellDef="let row">{{row.AdmNumber}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="NewBal">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Outstanding Fee Balance</th>
+            <td mat-cell *matCellDef="let row">KES. {{row.NewBal}}</td>
+          </ng-container>
+        <ng-container matColumnDef="names">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student Full Names</th>
+          <td mat-cell *matCellDef="let row">{{row.names}}</td>
+        </ng-container>
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender</th>
+          <td mat-cell *matCellDef="let row">{{row.gender}}</td>
+        </ng-container>
+        <ng-container matColumnDef="complettionYear">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Remaining Period for study</th>
+            <td mat-cell *matCellDef="let row">{{calcYear(row)}}</td>
+          </ng-container>
+       
+      
+        <ng-container matColumnDef="course_level">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's course</th>
+          <td mat-cell *matCellDef="let row">{{row.course_level}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef="operations">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Operation</th>
+          <td mat-cell *matCellDef="let row">
+            
+            <button class="btn btn-success btn-sm" routerLink="alumni/{{row.AdmNumber}}" (click)="ClearStudent(row.AdmNumber)" (click)="delAccounts(row.AdmNumber)" >Clear Student</button>
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns:columns;"></tr>
+      </table>
+    
+    <mat-paginator [length]="10000"  
+                    [pageSize]="3"
+                    [pageSizeOptions]="[1,3,9,12]">
+                 
+    </mat-paginator>
+  
+  <p>{{val}}</p>
+</div>

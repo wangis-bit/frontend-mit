@@ -1,0 +1,41 @@
+
+<div class="card row" style="padding: 10px;">
+<div class="row">
+  <div class="col-md-8">
+    <h1 class="text-center">The MIT Special Fees Information Managemnt System</h1>
+  </div>
+  <div class="col-md-4 text-right" id="div">
+    <button id="open" class="btn btn-sm btn-success" *ngIf="user" value="{{user.role_id}}" (click) = "clicked($event)" (click)="detailsPage(user)">View your Departmental details</button>
+  
+  </div>
+</div>
+ 
+  <div *ngIf="user">
+    <div>
+      <h2  >Welcome <span class="text-success" ><b>{{ user.name}}; </b></span></h2>
+    </div>
+    <div class="col-md-6 offset-md-1" id="div">
+      <div>
+       
+        <h4>This is your personalized control panel</h4>
+        <h3><b>You have logged in as the </b><u><i>Head of department!</i></u></h3>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+</div>
+
+
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
